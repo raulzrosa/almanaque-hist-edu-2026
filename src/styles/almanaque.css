@@ -184,12 +184,15 @@ body {
   border: 1px solid rgba(179, 134, 52, 0.3);
   border-radius: 6px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
 }
 
 .nav-summary-select {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .nav-label {
@@ -199,6 +202,7 @@ body {
   color: var(--color-gold-light);
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .select-vintage {
@@ -211,6 +215,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
   outline: none;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .select-vintage option {
@@ -218,10 +224,32 @@ body {
   color: #f7eedb;
 }
 
+.nav-lesson-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-page-counter {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: #e8dec3;
+  white-space: nowrap;
+}
+
 .nav-view-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
+}
+
+.nav-view-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .btn-vintage {
@@ -960,36 +988,49 @@ body {
 /* Grade do Caça Palavras */
 .wordsearch-grid {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, minmax(0, 1fr));
   gap: 4px;
   background: #f0e6d2;
   padding: 8px;
   border: 2px solid var(--color-gold);
   border-radius: 4px;
   user-select: none;
+  -webkit-user-select: none;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  touch-action: none;
+  width: 100%;
+  max-width: 360px;
+  box-sizing: border-box;
 }
 
 .ws-cell {
-  width: 32px;
-  height: 32px;
+  width: 100%;
+  aspect-ratio: 1;
+  min-width: 0;
+  min-height: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: clamp(0.85rem, 3.5vw, 1.05rem);
   background: #fdfaf2;
   color: var(--ink-primary);
   border: 1px solid #d8cca8;
   border-radius: 3px;
   cursor: pointer;
+  padding: 0;
   transition: all 0.15s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
-.ws-cell:hover {
-  background: #f5dfb8;
-  transform: scale(1.05);
+@media (hover: hover) {
+  .ws-cell:hover {
+    background: #f5dfb8;
+    transform: scale(1.05);
+  }
 }
 
 .ws-cell.selected {
@@ -1010,6 +1051,12 @@ body {
 .wordsearch-list {
   flex: 1;
   min-width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wordsearch-words-grid {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1506,6 +1553,69 @@ body {
   }
 }
 
+@media (max-width: 860px) {
+  .almanac-nav-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  .nav-summary-select {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .nav-summary-select .select-vintage {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.88rem;
+  }
+
+  .nav-lesson-controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .nav-lesson-controls .btn-vintage {
+    flex: 1;
+    justify-content: center;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+  }
+
+  .nav-view-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .nav-view-buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .nav-view-buttons .btn-vintage {
+    flex: 1 1 calc(33.333% - 6px);
+    min-width: 85px;
+    padding: 6px 8px;
+    font-size: 0.74rem;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    letter-spacing: 0;
+  }
+}
+
 @media (max-width: 640px) {
   .almanac-page {
     padding: 20px 16px;
@@ -1524,20 +1634,90 @@ body {
   }
   
   .lesson-h1 {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+    text-align: center;
   }
-  
-  .ws-cell {
-    width: 26px;
-    height: 26px;
-    font-size: 0.9rem;
+
+  .lesson-h2 {
+    text-align: center;
   }
-  
-  .almanac-nav-bar {
+
+  .lesson-chapter-label {
+    text-align: center;
+  }
+
+  /* Ponto X abaixo e centralizado do título e subtítulo */
+  .point-header {
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
   }
-  
+
+  .point-title-group {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .point-title {
+    text-align: center;
+    font-size: 1.15rem;
+  }
+
+  .point-subtitle {
+    display: block;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .point-numeral-badge {
+    order: 2;
+    align-self: center;
+    margin-top: 4px;
+  }
+
+  /* Caça-palavras em telas pequenas */
+  .wordsearch-layout {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .wordsearch-grid {
+    width: 100%;
+    max-width: 340px;
+    padding: 6px;
+    gap: 3px;
+  }
+
+  .ws-cell {
+    width: 100%;
+    aspect-ratio: 1;
+    font-size: clamp(0.78rem, 3.8vw, 0.95rem);
+  }
+
+  .wordsearch-list {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .wordsearch-words-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .ws-word-item {
+    padding: 4px 6px;
+    font-size: 0.74rem;
+  }
+
+  .nav-view-buttons .btn-vintage {
+    font-size: 0.7rem;
+    padding: 6px 4px;
+  }
+
   .ribbon-bookmark {
     display: none;
   }

@@ -9,8 +9,16 @@ export default function WordSearch({ config }) {
   const [foundWords, setFoundWords] = useState([])
   const [foundCoords, setFoundCoords] = useState([])
   const [activeHint, setActiveHint] = useState(null)
-  const isDragging = useRef(false)
+  
+  const isPointerDown = useRef(false)
+  const dragStarted = useRef(false)
   const startCell = useRef(null)
+  const gridRef = useRef(null)
+
+  const selectedCoordsRef = useRef(selectedCoords)
+  selectedCoordsRef.current = selectedCoords
+  const foundWordsRef = useRef(foundWords)
+  foundWordsRef.current = foundWords
 
   // Dispara confetes ao completar todas as palavras
   useEffect(() => {
@@ -58,12 +66,11 @@ export default function WordSearch({ config }) {
     const reversed = [...word].reverse().join('')
 
     const match = palavras.find(
-      (p) => (p.palavra === word || p.palavra === reversed) && !foundWords.includes(p.palavra)
+      (p) => (p.palavra === word || p.palavra === reversed) && !foundWordsRef.current.includes(p.palavra)
     )
 
     if (match) {
       setFoundWords((prev) => [...prev, match.palavra])
-      // Adiciona coordenadas sem duplicatas
       setFoundCoords((prev) => {
         const next = [...prev]
         coords.forEach(([r, c]) => {
@@ -79,53 +86,117 @@ export default function WordSearch({ config }) {
     return false
   }
 
-  // Trata início de seleção (MouseDown / TouchStart)
-  const handleStart = (r, c) => {
-    isDragging.current = true
+  const handleCellDown = (r, c) => {
+    isPointerDown.current = true
+    dragStarted.current = false
     startCell.current = [r, c]
+  }
 
-    // Se já havia 1 célula selecionada anteriormente e agora clicamos em outra na mesma linha:
-    if (selectedCoords.length === 1) {
-      const [r0, c0] = selectedCoords[0]
+  const handleCellMove = (r, c) => {
+    if (!isPointerDown.current || !startCell.current) return
+    const [r0, c0] = startCell.current
+    if (r !== r0 || c !== c0) {
+      dragStarted.current = true
       const line = getLineCoords(r0, c0, r, c)
-      if (line && line.length > 1) {
+      if (line) {
         setSelectedCoords(line)
-        const found = testCoordinatesForWord(line)
-        if (found) {
-          isDragging.current = false
-          startCell.current = null
-          return
+      }
+    }
+  }
+
+  const handleCellUp = (r, c) => {
+    if (!isPointerDown.current) return
+    isPointerDown.current = false
+
+    if (dragStarted.current) {
+      dragStarted.current = false
+      startCell.current = null
+      if (selectedCoordsRef.current.length > 0) {
+        const found = testCoordinatesForWord(selectedCoordsRef.current)
+        if (!found) {
+          setSelectedCoords([])
         }
       }
-    }
-
-    setSelectedCoords([[r, c]])
-    testCoordinatesForWord([[r, c]])
-  }
-
-  // Trata arrasto (MouseEnter / TouchMove)
-  const handleHover = (r, c) => {
-    if (!isDragging.current || !startCell.current) return
-    const [r0, c0] = startCell.current
-    const line = getLineCoords(r0, c0, r, c)
-    if (line) {
-      setSelectedCoords(line)
-    }
-  }
-
-  // Trata fim de seleção (MouseUp / TouchEnd)
-  const handleEnd = () => {
-    if (!isDragging.current) return
-    isDragging.current = false
-
-    if (selectedCoords.length > 0) {
-      const found = testCoordinatesForWord(selectedCoords)
-      if (!found && selectedCoords.length > 1) {
-        // Se formou uma linha que não é palavra, limpa a seleção
-        setSelectedCoords([])
+    } else {
+      // Tap / Click
+      startCell.current = null
+      const currentSelected = selectedCoordsRef.current
+      if (currentSelected.length === 1) {
+        const [r0, c0] = currentSelected[0]
+        if (r0 === r && c0 === c) {
+          // Deseleciona
+          setSelectedCoords([])
+        } else {
+          const line = getLineCoords(r0, c0, r, c)
+          if (line && line.length > 1) {
+            const found = testCoordinatesForWord(line)
+            if (!found) {
+              setSelectedCoords([[r, c]])
+            }
+          } else {
+            setSelectedCoords([[r, c]])
+          }
+        }
+      } else {
+        setSelectedCoords([[r, c]])
       }
     }
   }
+
+  // Touch listener para dispositivos móveis com suporte a arrastar
+  useEffect(() => {
+    const gridEl = gridRef.current
+    if (!gridEl) return
+
+    const getCellFromTouch = (touch) => {
+      const target = document.elementFromPoint(touch.clientX, touch.clientY)
+      const cell = target?.closest('[data-row][data-col]')
+      if (!cell) return null
+      return [parseInt(cell.dataset.row, 10), parseInt(cell.dataset.col, 10)]
+    }
+
+    const onTouchStart = (e) => {
+      const coords = getCellFromTouch(e.touches[0])
+      if (coords) {
+        handleCellDown(coords[0], coords[1])
+      }
+    }
+
+    const onTouchMove = (e) => {
+      if (!isPointerDown.current) return
+      if (e.cancelable) e.preventDefault()
+      const coords = getCellFromTouch(e.touches[0])
+      if (coords) {
+        handleCellMove(coords[0], coords[1])
+      }
+    }
+
+    const onTouchEnd = (e) => {
+      if (!isPointerDown.current) return
+      const touch = e.changedTouches[0]
+      const coords = (touch ? getCellFromTouch(touch) : null) || startCell.current || [0, 0]
+      handleCellUp(coords[0], coords[1])
+    }
+
+    const onTouchCancel = () => {
+      isPointerDown.current = false
+      dragStarted.current = false
+      startCell.current = null
+      setSelectedCoords([])
+    }
+
+    gridEl.addEventListener('touchstart', onTouchStart, { passive: true })
+    gridEl.addEventListener('touchmove', onTouchMove, { passive: false })
+    gridEl.addEventListener('touchend', onTouchEnd)
+    gridEl.addEventListener('touchcancel', onTouchCancel)
+
+    return () => {
+      gridEl.removeEventListener('touchstart', onTouchStart)
+      gridEl.removeEventListener('touchmove', onTouchMove)
+      gridEl.removeEventListener('touchend', onTouchEnd)
+      gridEl.removeEventListener('touchcancel', onTouchCancel)
+    }
+  }, [fixedGrid, palavras])
 
   const handleWordListClick = (palavraObj) => {
     setActiveHint(palavraObj.dica)
@@ -151,16 +222,24 @@ export default function WordSearch({ config }) {
   return (
     <div 
       className="wordsearch-container"
-      onMouseUp={handleEnd}
-      onMouseLeave={handleEnd}
+      onMouseUp={() => {
+        if (isPointerDown.current && startCell.current) {
+          handleCellUp(startCell.current[0], startCell.current[1])
+        }
+      }}
     >
       <p className="wordsearch-instruction">
-        {instrucao} <em>(Arraste ou clique na primeira e na última letra de cada palavra)</em>
+        {instrucao} <em>(Arraste ou toque na primeira e na última letra de cada palavra)</em>
       </p>
 
       <div className="wordsearch-layout">
         {/* Grade de Letras */}
-        <div className="wordsearch-grid" role="grid" aria-label="Grade de caça-palavras">
+        <div 
+          ref={gridRef}
+          className="wordsearch-grid" 
+          role="grid" 
+          aria-label="Grade de caça-palavras"
+        >
           {fixedGrid.map((row, rIdx) => (
             row.map((letter, cIdx) => {
               const found = isCellFound(rIdx, cIdx)
@@ -169,9 +248,12 @@ export default function WordSearch({ config }) {
                 <button
                   key={`${rIdx}-${cIdx}`}
                   type="button"
+                  data-row={rIdx}
+                  data-col={cIdx}
                   className={`ws-cell ${found ? 'found' : ''} ${selected ? 'selected' : ''}`}
-                  onMouseDown={() => handleStart(rIdx, cIdx)}
-                  onMouseEnter={() => handleHover(rIdx, cIdx)}
+                  onMouseDown={() => handleCellDown(rIdx, cIdx)}
+                  onMouseEnter={() => handleCellMove(rIdx, cIdx)}
+                  onMouseUp={() => handleCellUp(rIdx, cIdx)}
                   title={`Linha ${rIdx + 1}, Coluna ${cIdx + 1}`}
                 >
                   {letter}
@@ -197,25 +279,27 @@ export default function WordSearch({ config }) {
             </button>
           </div>
 
-          {palavras.map((p) => {
-            const found = foundWords.includes(p.palavra)
-            return (
-              <div
-                key={p.palavra}
-                className={`ws-word-item ${found ? 'found' : ''}`}
-                onClick={() => handleWordListClick(p)}
-                style={{ cursor: 'pointer' }}
-                title={`Clique para ver a dica de ${p.palavra}`}
-              >
-                <span>{p.palavra}</span>
-                {found ? (
-                  <CheckCircle2 size={14} color="#8c2418" />
-                ) : (
-                  <HelpCircle size={14} color="#998772" />
-                )}
-              </div>
-            )
-          })}
+          <div className="wordsearch-words-grid">
+            {palavras.map((p) => {
+              const found = foundWords.includes(p.palavra)
+              return (
+                <div
+                  key={p.palavra}
+                  className={`ws-word-item ${found ? 'found' : ''}`}
+                  onClick={() => handleWordListClick(p)}
+                  style={{ cursor: 'pointer' }}
+                  title={`Clique para ver a dica de ${p.palavra}`}
+                >
+                  <span>{p.palavra}</span>
+                  {found ? (
+                    <CheckCircle2 size={14} color="#8c2418" />
+                  ) : (
+                    <HelpCircle size={14} color="#998772" />
+                  )}
+                </div>
+              )
+            })}
+          </div>
 
           {activeHint && (
             <div style={{

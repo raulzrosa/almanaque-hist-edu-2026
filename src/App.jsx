@@ -136,9 +136,10 @@ export default function App() {
         <div className="footer-inner">
           <div className="footer-heraldry">✦ 📜 ✦</div>
           <div className="footer-creds">
-            Almanaque Digital de História da Educação • Desenvolvido para estudos universitários e difusão do pensamento crítico.
+            Almanaque Digital de História da Educação • Disciplina de História da Educação II - Ufscar - Universidade Federal de São Carlos • 2026
           </div>
-          <div style={{ marginTop: 6, display: 'flex', gap: 12, alignItems: 'center' }}>
+          <div> Desenvolvido por Raul Zaninetti Rosa</div>
+          {/* <div style={{ marginTop: 6, display: 'flex', gap: 12, alignItems: 'center' }}>
             <button
               onClick={() => setShowHowToAddModal(true)}
               className="btn-vintage-outline"
@@ -147,7 +148,7 @@ export default function App() {
               <PlusCircle size={13} style={{ display: 'inline', marginRight: 4 }} />
               Como adicionar novos resumos (.md)
             </button>
-          </div>
+          </div> */}
         </div>
       </footer>
 

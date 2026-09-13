@@ -43,7 +43,7 @@ export default function AlmanacNavigation({
       </div>
 
       {/* Controles de Navegação entre Aulas */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <div className="nav-lesson-controls">
         <button
           type="button"
           className="btn-vintage btn-vintage-outline"
@@ -54,7 +54,7 @@ export default function AlmanacNavigation({
           <ChevronLeft size={16} /> Anterior
         </button>
 
-        <span style={{ fontFamily: 'var(--font-display)', fontSize: '0.85rem', color: '#e8dec3' }}>
+        <span className="nav-page-counter">
           {currentLessonIndex + 1} / {aulas.length}
         </span>
 
@@ -71,31 +71,33 @@ export default function AlmanacNavigation({
 
       {/* Alternância de Modo de Visualização (Página Dupla vs Página Única) */}
       <div className="nav-view-actions">
-        <span className="nav-label" style={{ fontSize: '0.78rem' }}>Exibição:</span>
-        <button
-          type="button"
-          className={`btn-vintage btn-vintage-outline ${activePageView === 'spread' ? 'active' : ''}`}
-          onClick={() => onChangePageView('spread')}
-          title="Ver as duas páginas lado a lado (estilo livro aberto)"
-        >
-          <Columns size={14} /> Página Dupla
-        </button>
-        <button
-          type="button"
-          className={`btn-vintage btn-vintage-outline ${activePageView === 'page1' ? 'active' : ''}`}
-          onClick={() => onChangePageView('page1')}
-          title="Ver apenas a Página 1 (Resumo)"
-        >
-          <FileText size={14} /> Pág. 1 (Resumo)
-        </button>
-        <button
-          type="button"
-          className={`btn-vintage btn-vintage-outline ${activePageView === 'page2' ? 'active' : ''}`}
-          onClick={() => onChangePageView('page2')}
-          title="Ver apenas a Página 2 (Passatempos)"
-        >
-          <BookOpen size={14} /> Pág. 2 (Jogos)
-        </button>
+        <span className="nav-label">Exibição:</span>
+        <div className="nav-view-buttons">
+          <button
+            type="button"
+            className={`btn-vintage btn-vintage-outline ${activePageView === 'spread' ? 'active' : ''}`}
+            onClick={() => onChangePageView('spread')}
+            title="Ver as duas páginas lado a lado (estilo livro aberto)"
+          >
+            <Columns size={14} /> <span>Página Dupla</span>
+          </button>
+          <button
+            type="button"
+            className={`btn-vintage btn-vintage-outline ${activePageView === 'page1' ? 'active' : ''}`}
+            onClick={() => onChangePageView('page1')}
+            title="Ver apenas a Página 1 (Resumo)"
+          >
+            <FileText size={14} /> <span>Pág. 1 (Resumo)</span>
+          </button>
+          <button
+            type="button"
+            className={`btn-vintage btn-vintage-outline ${activePageView === 'page2' ? 'active' : ''}`}
+            onClick={() => onChangePageView('page2')}
+            title="Ver apenas a Página 2 (Passatempos)"
+          >
+            <BookOpen size={14} /> <span>Pág. 2 (Jogos)</span>
+          </button>
+        </div>
       </div>
     </nav>
   )
