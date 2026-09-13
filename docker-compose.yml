@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "80:80" # Agora mapeamos a porta 80 do seu PC para a 80 do container
+    restart: always # Faz o servidor ligar sozinho se o PC reiniciar
