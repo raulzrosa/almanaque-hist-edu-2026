@@ -1723,3 +1723,889 @@ body {
   }
 }
 
+/* ==========================================================================
+   SESSÃO ESPECIAL: HISTÓRIA EM QUADRINHOS HISTORIOGRÁFICA (LUTERO & COMÊNIO)
+   ========================================================================== */
+
+.comic-dialogue-section {
+  margin: 28px 0;
+  padding: 24px 20px 28px;
+  background: linear-gradient(135deg, rgba(254, 251, 245, 0.98), rgba(246, 237, 219, 0.95));
+  border: 2px solid var(--color-gold, #b38634);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(50, 35, 20, 0.08), inset 0 0 20px rgba(179, 134, 52, 0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Faixa decorativa no topo da sessão especial */
+.comic-dialogue-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-ruby), var(--color-gold), var(--color-ruby));
+}
+
+.comic-section-header {
+  text-align: center;
+  margin-bottom: 26px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed rgba(179, 134, 52, 0.45);
+}
+
+.comic-section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--color-ruby), var(--color-ruby-dark));
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+}
+
+.comic-section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  margin: 6px 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.comic-section-subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-secondary);
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+/* Fileira de cada Personagem (Lutero e Comênio) */
+.comic-character-row {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.comic-row-lutero {
+  flex-direction: row; /* Imagem à esquerda, balão à direita */
+}
+
+.comic-row-comenio {
+  flex-direction: row; /* Balão à esquerda, imagem à direita */
+}
+
+/* Moldura e Retrato do Personagem */
+.comic-portrait-container {
+  flex: 0 0 170px;
+  max-width: 175px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.comic-character-row.is-visible .comic-portrait-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.comic-portrait-frame {
+  background: #1e1610;
+  border: 2px solid var(--color-gold, #b38634);
+  border-radius: 6px;
+  padding: 6px;
+  box-shadow: 0 5px 15px rgba(30, 20, 10, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.comic-portrait-frame:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(30, 20, 10, 0.32);
+}
+
+.comic-portrait-img {
+  width: 100%;
+  height: 205px;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 4px;
+  display: block;
+  filter: contrast(1.05) brightness(0.98);
+}
+
+.comic-portrait-plate {
+  padding-top: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.portrait-name {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--color-gold-light, #dfb25f);
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.portrait-dates {
+  font-family: var(--font-editorial);
+  font-size: 0.74rem;
+  font-style: italic;
+  color: #cbb898;
+}
+
+.portrait-tag {
+  font-family: var(--font-display);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #e59c90;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Balão de História em Quadrinhos */
+.comic-balloon-wrapper {
+  flex: 1;
+  position: relative;
+  min-width: 0;
+  opacity: 0;
+  transform: scale(0.92) translateY(24px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: 0.16s;
+}
+
+.comic-character-row.is-visible .comic-balloon-wrapper {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.comic-balloon-box {
+  background: #fffdf8;
+  border: 2.5px solid #27211b;
+  border-radius: 20px;
+  padding: 16px 20px;
+  position: relative;
+  box-shadow: 4px 4px 0px rgba(39, 33, 27, 0.85);
+}
+
+.comic-balloon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px dashed rgba(39, 33, 27, 0.25);
+  padding-bottom: 6px;
+}
+
+.comic-balloon-speaker {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-ruby-dark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.comic-balloon-badge {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: rgba(179, 134, 52, 0.2);
+  border: 1px solid var(--color-gold);
+  color: var(--ink-primary);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.comic-balloon-lead {
+  font-family: var(--font-editorial);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--ink-primary);
+  line-height: 1.45;
+  margin-bottom: 12px;
+  background: rgba(223, 178, 95, 0.14);
+  padding: 8px 12px;
+  border-left: 3px solid var(--color-ruby);
+  border-radius: 0 6px 6px 0;
+}
+
+.comic-principles-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comic-principles-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  line-height: 1.46;
+  color: var(--ink-primary);
+}
+
+.principle-bullet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: #f4ecdc;
+  border: 1px solid var(--color-ruby);
+  color: var(--color-ruby-dark);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.comic-principles-list strong {
+  color: var(--color-ruby-dark);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+}
+
+.comic-balloon-footer {
+  margin-top: 8px;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(39, 33, 27, 0.2);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.03em;
+  text-align: right;
+}
+
+/* Apêndices / Rabichos do Balão (Comic Tails) */
+.comic-tail {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.comic-tail-left {
+  left: -22px;
+  top: 36px;
+}
+
+.comic-tail-right {
+  right: -22px;
+  top: 36px;
+}
+
+.comic-tail-top {
+  display: none;
+  top: -18px;
+  left: 38px;
+}
+
+/* Divisor Decorativo Vintage */
+.comic-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 26px 0;
+}
+
+.comic-divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(179, 134, 52, 0.6), transparent);
+}
+
+.comic-divider-ornament {
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.25em;
+}
+
+/* Responsividade Mobile para a Sessão Especial */
+@media (max-width: 768px) {
+  .comic-character-row {
+    flex-direction: column !important;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .comic-portrait-container {
+    flex: 0 0 auto;
+    max-width: 190px;
+    margin: 0 auto;
+  }
+
+  .comic-balloon-wrapper {
+    width: 100%;
+  }
+
+  .comic-tail-left,
+  .comic-tail-right {
+    display: none;
+  }
+
+  .comic-tail-top {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   SESSÃO ESPECIAL: CARROSSEL DOS PIONEIROS DA FORMAÇÃO DOCENTE (DÉMIA, LA SALLE, LAKANAL)
+   ========================================================================== */
+
+.thinkers-carousel-section {
+  margin: 32px 0 28px;
+  padding: 24px 22px 26px;
+  background: linear-gradient(135deg, rgba(254, 252, 246, 0.98), rgba(246, 238, 222, 0.95));
+  border: 2px solid var(--color-gold, #b38634);
+  border-radius: 8px;
+  box-shadow: 0 6px 22px rgba(50, 35, 20, 0.09), inset 0 0 20px rgba(179, 134, 52, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.thinkers-carousel-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-gold-dark), var(--color-ruby), var(--color-gold));
+}
+
+.thinkers-header {
+  text-align: center;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(179, 134, 52, 0.45);
+}
+
+.thinkers-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--color-gold-dark), #634714);
+  color: #fff4e0;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 8px;
+}
+
+.thinkers-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 800;
+  color: var(--ink-primary);
+  margin: 6px 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.thinkers-subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--ink-secondary);
+  max-width: 720px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+/* Tabs de Navegação dos Pensadores */
+.thinkers-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.thinker-tab-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fdfaf2;
+  border: 1px solid #d4c5a6;
+  border-radius: 6px;
+  padding: 10px 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(50, 35, 20, 0.05);
+}
+
+.thinker-tab-btn:hover {
+  background: #fffdf9;
+  border-color: var(--color-gold);
+  transform: translateY(-1px);
+}
+
+.thinker-tab-btn.active {
+  background: linear-gradient(135deg, #2b1f16, #1a120c);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 12px rgba(30, 20, 10, 0.25);
+  transform: translateY(-2px);
+}
+
+.thinker-tab-index {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--color-ruby);
+  background: rgba(140, 36, 24, 0.12);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.thinker-tab-btn.active .thinker-tab-index {
+  background: var(--color-gold);
+  color: #1a120c;
+}
+
+.thinker-tab-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.thinker-tab-name {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--ink-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+}
+
+.thinker-tab-btn.active .thinker-tab-name {
+  color: #fff4e0;
+}
+
+.thinker-tab-dates {
+  font-family: var(--font-editorial);
+  font-size: 0.74rem;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+.thinker-tab-btn.active .thinker-tab-dates {
+  color: var(--color-gold-light);
+}
+
+/* Card Principal do Pensador */
+.thinker-card-display {
+  display: flex;
+  gap: 24px;
+  background: #fffdf9;
+  border: 1.5px solid #d8caa9;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 14px rgba(50, 35, 20, 0.07);
+  animation: fadeInSlide 0.35s ease-out;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Coluna Esquerda: Retrato */
+.thinker-portrait-column {
+  flex: 0 0 200px;
+  max-width: 210px;
+  display: flex;
+  flex-direction: column;
+}
+
+.thinker-image-frame {
+  position: relative;
+  background: #19120c;
+  border: 2px solid var(--color-gold, #b38634);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(30, 20, 10, 0.25);
+}
+
+.thinker-img {
+  width: 100%;
+  height: 255px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.3s ease;
+  filter: contrast(1.04) brightness(0.98);
+}
+
+.thinker-image-frame:hover .thinker-img {
+  transform: scale(1.03);
+}
+
+.thinker-image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(20, 14, 9, 0.85), transparent);
+  padding: 8px 10px 4px;
+  text-align: center;
+}
+
+.thinker-overlay-dates {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-light);
+  font-weight: 700;
+}
+
+.thinker-caption-box {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.thinker-caption-name {
+  font-family: var(--font-display);
+  font-size: 0.96rem;
+  font-weight: 800;
+  color: var(--color-ruby-dark);
+  margin: 0 0 2px;
+  letter-spacing: 0.02em;
+}
+
+.thinker-caption-role {
+  font-family: var(--font-editorial);
+  font-size: 0.82rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--color-gold-dark);
+  line-height: 1.3;
+}
+
+.thinker-caption-region {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-top: 4px;
+}
+
+/* Coluna Direita: Conteúdo Estruturado */
+.thinker-content-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.thinker-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed rgba(179, 134, 52, 0.3);
+  padding-bottom: 8px;
+}
+
+.thinker-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(140, 36, 24, 0.1);
+  border: 1px solid rgba(140, 36, 24, 0.3);
+  color: var(--color-ruby-dark);
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.thinker-slide-counter {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Tese Central */
+.thinker-thesis-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(223, 178, 95, 0.15);
+  border-left: 3.5px solid var(--color-ruby);
+  border-radius: 0 6px 6px 0;
+  padding: 9px 12px;
+  margin-bottom: 14px;
+}
+
+.thesis-icon {
+  color: var(--color-ruby);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.thesis-text {
+  font-family: var(--font-editorial);
+  font-size: 0.98rem;
+  font-style: italic;
+  color: var(--ink-primary);
+  line-height: 1.45;
+}
+
+.thesis-text strong {
+  font-family: var(--font-display);
+  font-style: normal;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ruby-dark);
+  margin-right: 4px;
+}
+
+/* Lista de Ideias */
+.thinker-ideas-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.thinker-idea-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: #fbf6ec;
+  border: 1px solid #e7dcbf;
+  border-radius: 6px;
+  padding: 8px 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.thinker-idea-item:hover {
+  transform: translateX(2px);
+  border-color: var(--color-gold);
+  box-shadow: 0 2px 6px rgba(50, 35, 20, 0.05);
+}
+
+.idea-bullet-num {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-ruby);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.idea-body {
+  flex: 1;
+}
+
+.idea-title {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: var(--color-ruby-dark);
+  margin: 0 0 2px;
+  letter-spacing: 0.02em;
+}
+
+.idea-desc {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--ink-primary);
+  margin: 0;
+}
+
+/* Rodapé com Citação e Legado */
+.thinker-quote-footer {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(179, 134, 52, 0.35);
+  margin-top: auto;
+}
+
+.quote-icon {
+  color: var(--color-gold);
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.quote-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.quote-phrase {
+  font-family: var(--font-editorial);
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--ink-secondary);
+}
+
+.quote-legacy {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-ruby-dark);
+  letter-spacing: 0.03em;
+}
+
+/* Controles de Navegação (Setas e Dots) */
+.thinkers-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(179, 134, 52, 0.25);
+}
+
+.carousel-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, #2b1f16, #1a120c);
+  border: 1px solid var(--color-gold);
+  color: #fff4e0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-nav-btn:hover {
+  background: linear-gradient(135deg, var(--color-ruby), var(--color-ruby-dark));
+  border-color: var(--color-gold-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d4c5a6;
+  border: 1px solid #b39f7a;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.carousel-dot:hover {
+  background: var(--color-gold);
+}
+
+.carousel-dot.active {
+  background: var(--color-ruby);
+  border-color: var(--color-ruby-dark);
+  transform: scale(1.3);
+  box-shadow: 0 1px 4px rgba(140, 36, 24, 0.4);
+}
+
+/* Responsividade Mobile para o Carrossel */
+@media (max-width: 768px) {
+  .thinkers-tabs {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .thinker-card-display {
+    flex-direction: column;
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .thinker-portrait-column {
+    flex: 0 0 auto;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .thinker-img {
+    height: 220px;
+  }
+}
+
+
+

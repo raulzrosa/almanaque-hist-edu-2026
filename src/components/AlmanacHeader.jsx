@@ -1,6 +1,6 @@
 import { Sparkles, Feather, GraduationCap } from 'lucide-react'
 
-export default function AlmanacHeader({ currentLesson }) {
+export default function AlmanacHeader() {
   return (
     <header className="almanac-header">
       <div className="header-inner">

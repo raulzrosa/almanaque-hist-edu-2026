@@ -9,7 +9,7 @@ import WordSearch from './components/WordSearch'
 import HistoryQuiz from './components/HistoryQuiz'
 import Crossword from './components/Crossword'
 import TimelineChallenge from './components/TimelineChallenge'
-import { Bookmark, Gamepad2, Sparkles, PlusCircle, Grid3X3, Clock } from 'lucide-react'
+import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock } from 'lucide-react'
 import './styles/almanaque.css'
 
 export default function App() {

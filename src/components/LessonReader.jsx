@@ -8,6 +8,11 @@ import PombalSchoolEngraving from './illustrations/PombalSchoolEngraving'
 import ColegioPedroIIEngraving from './illustrations/ColegioPedroIIEngraving'
 import LicoesDeCoisasEngraving from './illustrations/LicoesDeCoisasEngraving'
 import MestraBenedictaEngraving from './illustrations/MestraBenedictaEngraving'
+import ComeniusDidacticaEngraving from './illustrations/ComeniusDidacticaEngraving'
+import EscolaNormalEngraving from './illustrations/EscolaNormalEngraving'
+import InstitutosEducacaoEngraving from './illustrations/InstitutosEducacaoEngraving'
+import ComicDialogueSection from './ComicDialogueSection'
+import ThinkersCarouselSection from './ThinkersCarouselSection'
 
 export default function LessonReader({ lesson }) {
   // Modo de visualização: 'pontos' (tópicos ilustrados) ou 'corrido' (texto integral)
@@ -61,6 +66,12 @@ export default function LessonReader({ lesson }) {
         return <LicoesDeCoisasEngraving />
       case 'benedicta':
         return <MestraBenedictaEngraving />
+      case 'comenius':
+        return <ComeniusDidacticaEngraving />
+      case 'escolaNormal':
+        return <EscolaNormalEngraving />
+      case 'institutosEducacao':
+        return <InstitutosEducacaoEngraving />
       default:
         return null
     }
@@ -105,49 +116,61 @@ export default function LessonReader({ lesson }) {
       {viewMode === 'pontos' && pontos.length > 0 ? (
         <div className="lesson-points-list">
           {pontos.map((ponto, idx) => (
-            <section key={ponto.id || idx} className="lesson-point-card">
-              {/* Cabeçalho do Ponto */}
-              <div className="point-header">
-                <span className="point-numeral-badge">
-                  Ponto {ponto.numeroRomano}
-                </span>
-                <div className="point-title-group">
-                  <h3 className="point-title">{ponto.titulo}</h3>
-                  {ponto.subtitulo && (
-                    <span className="point-subtitle">{ponto.subtitulo}</span>
-                  )}
+            <div key={ponto.id || idx} className="lesson-point-wrapper">
+              <section className="lesson-point-card">
+                {/* Cabeçalho do Ponto */}
+                <div className="point-header">
+                  <span className="point-numeral-badge">
+                    Ponto {ponto.numeroRomano}
+                  </span>
+                  <div className="point-title-group">
+                    <h3 className="point-title">{ponto.titulo}</h3>
+                    {ponto.subtitulo && (
+                      <span className="point-subtitle">{ponto.subtitulo}</span>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-              {/* Gravura ou Imagem Ilustrativa de Época */}
-              {(ponto.imagemUrl || ponto.tipoIlustracao) && (
-                <div className="point-engraving-wrapper">
-                  {renderIllustration(ponto)}
+                {/* Gravura ou Imagem Ilustrativa de Época */}
+                {(ponto.imagemUrl || ponto.tipoIlustracao) && (
+                  <div className="point-engraving-wrapper">
+                    {renderIllustration(ponto)}
+                  </div>
+                )}
+
+                {/* Tag / Conceito de Destaque */}
+                {ponto.destaqueConceito && (
+                  <div className="point-concept-tag">
+                    <Sparkles size={13} /> {ponto.destaqueConceito}
+                  </div>
+                )}
+
+                {/* Parágrafos do Ponto */}
+                <div className="point-body-text">
+                  {ponto.paragrafos.map((paragrafo, pIdx) => (
+                    <p key={pIdx}>{paragrafo}</p>
+                  ))}
                 </div>
+
+                {/* Nota de rodapé explicativa / Reflexão */}
+                {ponto.notaRodape && (
+                  <div className="point-footer-note">
+                    <BookOpen size={13} style={{ flexShrink: 0, marginTop: 2 }} />
+                    <span>{ponto.notaRodape}</span>
+                  </div>
+                )}
+              </section>
+
+              {/* Sessão Especial entre o Ponto 1 e o Ponto 2 (Lutero & Comênio na Aula 06) */}
+              {((idx === 0 && lesson.numero === 6) || ponto.secaoEspecialApos) && (
+                <ComicDialogueSection />
               )}
 
-              {/* Tag / Conceito de Destaque */}
-              {ponto.destaqueConceito && (
-                <div className="point-concept-tag">
-                  <Sparkles size={13} /> {ponto.destaqueConceito}
-                </div>
+              {/* Sessão Especial após o Ponto 2 (Carrossel dos 3 Pensadores na Aula 06) */}
+              {idx === 1 && lesson.numero === 6 && (
+                <ThinkersCarouselSection />
               )}
-
-              {/* Parágrafos do Ponto */}
-              <div className="point-body-text">
-                {ponto.paragrafos.map((paragrafo, pIdx) => (
-                  <p key={pIdx}>{paragrafo}</p>
-                ))}
-              </div>
-
-              {/* Nota de rodapé explicativa / Reflexão */}
-              {ponto.notaRodape && (
-                <div className="point-footer-note">
-                  <BookOpen size={13} style={{ flexShrink: 0, marginTop: 2 }} />
-                  <span>{ponto.notaRodape}</span>
-                </div>
-              )}
-            </section>
+            </div>
           ))}
         </div>
       ) : (

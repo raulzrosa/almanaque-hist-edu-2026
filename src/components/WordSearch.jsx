@@ -16,9 +16,12 @@ export default function WordSearch({ config }) {
   const gridRef = useRef(null)
 
   const selectedCoordsRef = useRef(selectedCoords)
-  selectedCoordsRef.current = selectedCoords
   const foundWordsRef = useRef(foundWords)
-  foundWordsRef.current = foundWords
+
+  useEffect(() => {
+    selectedCoordsRef.current = selectedCoords
+    foundWordsRef.current = foundWords
+  }, [selectedCoords, foundWords])
 
   // Dispara confetes ao completar todas as palavras
   useEffect(() => {

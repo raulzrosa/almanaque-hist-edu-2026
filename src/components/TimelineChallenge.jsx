@@ -146,7 +146,7 @@ export default function TimelineChallenge({ config }) {
       {isCompleted && (
         <div className="ws-victory-banner" style={{ marginTop: 16 }}>
           <Trophy size={18} />
-          <span>Extraordinário! Toda a Linha do Tempo da Educação Imperial foi reconstruída!</span>
+          <span>{config.mensagemVitoria || 'Extraordinário! Toda a Linha do Tempo foi reconstruída!'}</span>
         </div>
       )}
     </div>
