@@ -16,7 +16,6 @@ export default function AlmanacHeader() {
         <p className="header-subtitle">
           Caderno de Estudos & Resumos Críticos de História da Educação
         </p>
-
       </div>
     </header>
   )

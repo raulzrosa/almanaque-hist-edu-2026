@@ -1,5 +1,6 @@
 import aula01Markdown from './aulas/aula-01.md?raw'
 import aula02Markdown from './aulas/aula-02.md?raw'
+import aula03Markdown from './aulas/aula-03.md?raw'
 import aula06Markdown from './aulas/aula-06.md?raw'
 
 export const AULAS = [
@@ -348,6 +349,292 @@ export const AULAS = [
             evento: 'Reforma Leôncio de Carvalho e "Lições de Coisas"',
             detalhe: 'Adoção do método intuitivo de Pestalozzi e Rui Barbosa: "as coisas antes das palavras".'
           }
+        ]
+      }
+    }
+  },
+  {
+    id: 'aula-03',
+    numero: 3,
+    slug: 'historia-politica-da-educacao-2',
+    titulo: 'História Política da Educação – Parte 2',
+    subtitulo: 'Da Proclamação da República à Nova LDB (1889 – 1996)',
+    disciplina: 'História da Educação',
+    semestre: '2026',
+    dataPublicacao: 'Edição nº 3',
+    modulo: 'Educação na República Brasileira',
+    resumoMarkdown: aula03Markdown,
+    pontosIlustrados: [
+      {
+        id: 'ponto-3-1',
+        numeroRomano: 'I',
+        titulo: 'A República e a Reforma Benjamin Constant (1890)',
+        subtitulo: 'O Decreto nº 981, o Método Intuitivo e a Nova Estrutura',
+        tipoIlustracao: 'licoesCoisas',
+        destaqueConceito: 'Secularização & Método Intuitivo',
+        paragrafos: [
+          'As transformações educacionais intensificaram-se logo após a Proclamação da República. Apenas um ano após o novo regime, foi promulgado o Decreto nº 981, de 8 de novembro de 1890, regulamentando a instrução primária e secundária no Distrito Federal.',
+          'Conduzida por Benjamin Constant, então Ministro da Instrução Pública, Correios e Telégrafos, a reforma adotou o método intuitivo (ancorado no ideário iluminista de valorização da observação e da experiência sensível). O ensino foi definido como livre, gratuito e laico.',
+          'O primário dividiu-se em 2 subgraus (7 a 13 anos e 13 a 15 anos), e o secundário (Ginásio) passou a ter 7 anos, culminando em exames para ingresso no ensino superior. Criou-se ainda uma estrutura administrativa robusta com conselho diretor e inspetores para fiscalizar programas, realizar concursos e acompanhar o corpo docente.'
+        ],
+        notaRodape: 'Decreto nº 981/1890: Primeira grande reorganização republicana do Distrito Federal, consolidando o ideário laico e o método intuitivo.'
+      },
+      {
+        id: 'ponto-3-2',
+        numeroRomano: 'II',
+        titulo: 'A Emergência dos Grupos Escolares (1893)',
+        subtitulo: 'A Reunião das Escolas Isoladas e as Escolas Subvencionadas',
+        tipoIlustracao: 'grupoEscolar',
+        destaqueConceito: 'Seriação & Racionalidade Escolar',
+        paragrafos: [
+          'Em 1893, despontaram no Estado de São Paulo os chamados grupos escolares. Essa proposta representou uma ruptura estrutural com as "escolas isoladas", nas quais um único professor lecionava para crianças de idades e níveis de instrução díspares em salas improvisadas.',
+          'O grupo escolar reuniu essas classes sob um mesmo teto arquitetônico, distribuindo os alunos de acordo com seu nível de aprendizagem e alocando professores específicos para cada turma.',
+          'Embora escolas isoladas tenham persistido em áreas rurais e periféricas, os grupos escolares tornaram-se o modelo hegemônico de instrução graduada. Simultaneamente, expandiram-se as escolas subvencionadas, nas quais o poder público financiava instituições privadas para ampliar a oferta escolar.'
+        ],
+        notaRodape: 'Inovação Paulista: Os Grupos Escolares instituíram a seriação pedagógica e o padrão arquitetônico monumental da escola pública republicana.'
+      },
+      {
+        id: 'ponto-3-3',
+        numeroRomano: 'III',
+        titulo: 'A Era Vargas e a Reforma Francisco Campos (1931)',
+        subtitulo: 'O Decreto nº 19.890 e a Padronização do Ensino Secundário',
+        tipoIlustracao: 'institutosEducacao',
+        destaqueConceito: 'Padronização Nacional & Exame de Admissão',
+        paragrafos: [
+          'Com a ascensão de Getúlio Vargas ao poder em 1930, a educação passou a ser compreendida como instrumento central de modernização e controle estatal. Em 18 de abril de 1931, o Decreto nº 19.890 consagrou as diretrizes da Reforma Francisco Campos para o ensino secundário.',
+          'O secundário foi estruturado em dois ciclos: o fundamental (cinco anos) e o complementar (dois anos). O currículo manteve base ampla e introduziu a obrigatoriedade da Educação Física como instrumento de disciplina corporal e revigoramento cívico.',
+          'A reforma impôs severo rigor: exame de admissão seletivo para ingresso, controle estrito de frequência e frequentes avaliações. Instituiu também o Registro de Professores, submetendo colégios estaduais, municipais e particulares às normas oficiais da União para que obtivessem reconhecimento.'
+        ],
+        notaRodape: 'Reforma Francisco Campos (1931): Unificou o padrão curricular secundário no Brasil e exigiu habilitação técnica para o magistério.'
+      },
+      {
+        id: 'ponto-3-4',
+        numeroRomano: 'IV',
+        titulo: 'O Estado Novo e as Leis Orgânicas do Ensino (1942–1946)',
+        subtitulo: 'A Reforma Capanema, o SENAI e a Divisão de Gênero',
+        tipoIlustracao: 'capanemaSenai',
+        destaqueConceito: 'Ensino Técnico & Divisão de Papéis',
+        paragrafos: [
+          'No contexto autoritário do Estado Novo, o ministro Gustavo Capanema articulou as Leis Orgânicas do Ensino a partir de 1942. A grande marca do período foi a estruturação do ensino industrial e comercial, destacando-se a criação do SENAI (Serviço Nacional de Aprendizagem Industrial).',
+          'O ensino secundário geral foi reorganizado em curso ginasial (4 anos) e curso colegial (3 anos). Em 1946, após o fim da ditadura varguista, a segunda reforma reestruturou o ensino primário, visando integrar o indivíduo à vida produtiva e social.',
+          'Entretanto, a formação pedagógica permaneceu profundamente demarcada pelas concepções de gênero: para as alunas, os decretos reforçavam currículos voltados às prendas domésticas e à preparação para a maternidade e a guarda do lar.'
+        ],
+        notaRodape: 'Reforma Capanema (1942): Instituiu o sistema de ensino técnico profissionalizante paralelo ao ensino acadêmico ginasial e colegial.'
+      },
+      {
+        id: 'ponto-3-5',
+        numeroRomano: 'V',
+        titulo: 'A Primeira LDB (1961) e a Educação Popular do MEB',
+        subtitulo: 'A "Meia Vitória" de Anísio Teixeira e as Escolas Radiofônicas',
+        tipoIlustracao: 'mebRadio',
+        destaqueConceito: 'LDB 4.024/61 & O Rádio Educador',
+        paragrafos: [
+          'Após mais de uma década de disputas entre setores católicos (defensores do ensino religioso) e defensores da escola laica, a primeira Lei de Diretrizes e Bases da Educação Nacional (Lei nº 4.024) foi sancionada em 1961 por João Goulart. A família obteve primazia na escolha educativa dos filhos sem desobrigar o dever do Estado.',
+          'Para Anísio Teixeira, a lei significou uma "meia vitória", pois preservou o caráter elitizado da rede pública e delegou pouca autonomia real aos municípios brasileiros.',
+          'Em paralelo, floresceu na década de 1960 o Movimento de Educação de Base (MEB), iniciativa pioneira de educação através de escolas radiofônicas articulada pela Igreja Católica e chancelada pelo governo federal (Decreto nº 52.267/1963). O projeto, juntamente com o método de alfabetização de Paulo Freire, foi interrompido pelo golpe militar de 1964.'
+        ],
+        notaRodape: 'MEB & Paulo Freire: Experiências de vanguarda em educação popular e escolas pelo rádio, estancadas pelo golpe civil-militar de 1964.'
+      },
+      {
+        id: 'ponto-3-6',
+        numeroRomano: 'VI',
+        titulo: 'Da Ditadura Militar (Lei 5.692/71) à Nova LDB de 1996',
+        subtitulo: 'Do Tecnicismo Compulsório à Conquista da Cidadania e Permanência',
+        tipoIlustracao: 'manuscrito',
+        destaqueConceito: 'Redemocratização & Direito à Permanência',
+        paragrafos: [
+          'Durante a ditadura militar, a reforma universitária de 1968 ampliou a pós-graduação, enquanto a Lei nº 5.692/1971 fundiu o primário e o ginásio no "1º grau" de 8 anos (obrigatório dos 7 aos 14 anos). O "2º grau" foi concebido como compulsòriamente profissionalizante, introduzindo disciplinas como Educação Moral e Cívica.',
+          'Com a redemocratização e a Constituição Cidadã de 1988, promulgou-se a atual LDB (Lei nº 9.394/1996), estruturando a educação nacional em Educação Básica (abarcando a Educação Infantil, Ensino Fundamental e Ensino Médio) e Educação Superior.',
+          'A LDB de 1996 consagrou uma virada democrática: superou o mero produtivismo tecnicista para colocar no centro a cidadania, o desenvolvimento pleno do aluno, a autonomia das instituições, a valorização do professor e a garantia não apenas do acesso, mas do direito inalienável à permanência na escola.'
+        ],
+        notaRodape: 'LDB nº 9.394/1996: A consolidação jurídica da Educação Básica integral, da educação infantil como direito e da permanência escolar.'
+      }
+    ],
+    conceitosChave: [
+      {
+        termo: 'Decreto nº 981 (1890)',
+        descricao: 'Reforma de Benjamin Constant no DF: ensino laico, gratuito e adoção do método intuitivo com ginásio de 7 anos.'
+      },
+      {
+        termo: 'Grupos Escolares (1893)',
+        descricao: 'Superação das escolas isoladas: reunião de classes num mesmo edifício, seriação por nível e corpo docente especializado.'
+      },
+      {
+        termo: 'Reforma Francisco Campos (1931)',
+        descricao: 'Padronização do ensino secundário nacional em dois ciclos (5 e 2 anos), exame de admissão e Registro de Professores.'
+      },
+      {
+        termo: 'Leis Orgânicas & SENAI (1942)',
+        descricao: 'Reforma Capanema estruturando o ensino industrial/comercial e bifurcando o secundário em ginasial e colegial.'
+      },
+      {
+        termo: 'LDB nº 4.024/1961',
+        descricao: 'Primeira LDB do Brasil, considerada "meia vitória" por Anísio Teixeira devido à autonomia restrita e manutenção do elitismo.'
+      },
+      {
+        termo: 'LDB nº 9.394/1996',
+        descricao: 'Marco atual da educação brasileira: estrutura a Educação Básica (com educação infantil) e garante o direito de permanência.'
+      }
+    ],
+    citacaoDestaque: {
+      texto: 'A LDB de 1996 supera a visão restrita ao mercado de trabalho, recolocando no centro da escola a cidadania, a autonomia das instituições e a garantia inalienável não só do acesso, mas da permanência do estudante.',
+      fonte: 'Síntese Historiográfica • Aula 03'
+    },
+    curiosidade: {
+      titulo: 'Gabinete de Curiosidades: "Do Ensino Secundário Feminino" (1942)',
+      texto: 'A Lei Orgânica do Ensino Secundário de 1942 (Decreto-Lei nº 4.244/1942, assinado por Gustavo Capanema e Getúlio Vargas) continha um título inteiro dedicado às estudantes: "Do ensino secundário feminino". O decreto recomendava expressamente que a educação secundária feminina ocorresse em estabelecimentos exclusivamente femininos, tornava obrigatória a matéria de economia doméstica em determinadas séries e determinava que toda a orientação pedagógica considerasse a "personalidade feminina" e a "missão da mulher dentro do lar". Uma evidência documental clara de como a legislação escolar do Estado Novo oficializava papéis de gênero rígidos.',
+      curiosidadeExtra: '💡 Você sabia? O Decreto-Lei nº 4.244/1942 estabelecia que as escolas deveriam moldar o currículo das jovens para as funções do lar e maternidade, demonstrando que o currículo oficial operava como instrumento de reprodução dos papéis sociais da época.'
+    },
+    passatempos: {
+      linhaDoTempo: {
+        titulo: 'Linha do Tempo das Reformas Educacionais na República',
+        instrucao: 'Reconecte cada grande ano e marco legislativo à sua transformação educacional correspondente:',
+        mensagemVitoria: 'Extraordinário! Toda a Linha do Tempo das Reformas Educacionais Republicanas foi reconstruída com precisão!',
+        marcos: [
+          {
+            id: 'm-1890',
+            ano: '1890',
+            evento: 'Decreto nº 981 / Reforma Benjamin Constant',
+            detalhe: 'Regulamentação das escolas no DF: método intuitivo, ensino laico e criação do secundário (Ginásio) com 7 anos.'
+          },
+          {
+            id: 'm-1893',
+            ano: '1893',
+            evento: 'Criação dos Grupos Escolares em São Paulo',
+            detalhe: 'Reunião das escolas isoladas sob um mesmo prédio, dividindo os alunos por nível e seriação de turmas.'
+          },
+          {
+            id: 'm-1931',
+            ano: '1931',
+            evento: 'Reforma Francisco Campos (Decreto nº 19.890)',
+            detalhe: 'Padronização do secundário em curso fundamental (5 anos) e complementar (2 anos), com exame de admissão.'
+          },
+          {
+            id: 'm-1942',
+            ano: '1942',
+            evento: 'Leis Orgânicas do Ensino & Criação do SENAI',
+            detalhe: 'Reforma Capanema criando o ensino industrial, o SENAI e dividindo o secundário em ginasial e colegial.'
+          },
+          {
+            id: 'm-1961',
+            ano: '1961',
+            evento: 'Promulgação da 1ª LDB (Lei nº 4.024/1961)',
+            detalhe: 'Sancionada sob João Goulart após uma década de debate entre católicos e laicos; a "meia vitória" de Anísio Teixeira.'
+          },
+          {
+            id: 'm-1971',
+            ano: '1971',
+            evento: 'Reforma do 1º e 2º Graus (Lei nº 5.692/1971)',
+            detalhe: 'Ditadura militar: unificação em 1º grau de 8 anos, 2º grau compulsório profissionalizante e Educação Moral e Cívica.'
+          },
+          {
+            id: 'm-1996',
+            ano: '1996',
+            evento: 'Promulgação da Nova LDB (Lei nº 9.394/1996)',
+            detalhe: 'Organização em Educação Básica (com educação infantil) e Superior, garantindo cidadania e permanência.'
+          }
+        ]
+      },
+      quiz: {
+        titulo: 'Sabatina Republicana: Decretos e Reformas Educacionais',
+        perguntas: [
+          {
+            id: 1,
+            enunciado: 'O Decreto nº 981 de 1890, orquestrado por Benjamin Constant no Distrito Federal, consagrou quais princípios pedagógicos para as escolas?',
+            opcoes: [
+              'O retorno ao modelo tradicional jesuítico focado exclusivamente em teologia e latim.',
+              'O método intuitivo (observação e experiência), com ensino livre, gratuito, laico e ginásio de 7 anos.',
+              'A supressão do ensino primário em favor da criação direta de universidades federais em todas as vilas.',
+              'A proibição do ingresso de estudantes secundaristas em qualquer curso superior.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'Benjamin Constant instituiu o método intuitivo e a laicidade republicana, além de uma estrutura administrativa com conselho diretor e inspetores.'
+          },
+          {
+            id: 2,
+            enunciado: 'Qual transformação estrutural fundamental caracterizou a criação dos "Grupos Escolares" em São Paulo a partir de 1893?',
+            opcoes: [
+              'A substituição de todos os mestres formados por alunos monitores lancasterianos.',
+              'A reunião de classes isoladas num mesmo edifício, agrupando alunos por nível de instrução com turmas e professores específicos.',
+              'A privatização compulsória de todas as escolas públicas com subsídios do poder público.',
+              'A proibição de prédios escolares específicos, passando as aulas a ocorrer em praças abertas.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'Os Grupos Escolares superaram o modelo das antigas escolas isoladas (onde um único professor dava aula para todas as idades), inaugurando a seriação escolar moderna.'
+          },
+          {
+            id: 3,
+            enunciado: 'Durante a Era Vargas, o que determinou o Decreto nº 19.890/1931 (Reforma Francisco Campos) em relação ao ensino secundário?',
+            opcoes: [
+              'Dividiu o secundário em curso fundamental (5 anos) e complementar (2 anos), exigindo exame de admissão e tornando a Educação Física obrigatória.',
+              'Extinguiu os exames de admissão, determinando a aprovação automática de todos os alunos.',
+              'Eliminou qualquer exigência de fiscalização ou critério para o magistério secundário.',
+              'Tornou o ensino secundário restrito ao ambiente doméstico e familiar.'
+            ],
+            respostaCorreta: 0,
+            explicacao: 'A Reforma Francisco Campos padronizou o secundário, instituiu o Registro de Professores, frequência obrigatória e adicionou a Educação Física ao currículo oficial.'
+          },
+          {
+            id: 4,
+            enunciado: 'Nas Leis Orgânicas do Ensino articuladas por Gustavo Capanema (1942), qual regulamentação específica foi destinada às estudantes mulheres?',
+            opcoes: [
+              'A obrigatoriedade de alistamento no ensino técnico metalúrgico do SENAI.',
+              'Um capítulo específico ("Do ensino secundário feminino") determinando escolas preferencialmente exclusivas e economia doméstica orientada ao papel da mulher no lar.',
+              'A proibição irrestrita de qualquer mulher ter acesso ao curso colegial ou ginasial.',
+              'A unificação imediata e sem distinção de gênero em todos os currículos profissionais.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'O Decreto-Lei nº 4.244/1942 prescrevia economia doméstica e estabelecia que o currículo feminino deveria considerar a "personalidade feminina" e a "missão da mulher no lar".'
+          },
+          {
+            id: 5,
+            enunciado: 'Por que Anísio Teixeira avaliou a primeira Lei de Diretrizes e Bases da Educação Nacional (LDB nº 4.024/1961) como uma "meia vitória"?',
+            opcoes: [
+              'Porque ela não foi sancionada pelo presidente da República.',
+              'Porque concedeu pouca autonomia aos municípios e não democratizou de fato as escolas públicas, que permaneceram elitizadas.',
+              'Porque acabou com todas as faculdades e universidades do país.',
+              'Porque tornou o Movimento de Educação de Base (MEB) o único sistema escolar permitido no Brasil.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'Embora tenha sido um marco após mais de 10 anos de disputas entre católicos e laicos, a LDB de 1961 concedeu pouca autonomia federativa municipal e manteve a seletividade elitista da escola pública.'
+          },
+          {
+            id: 6,
+            enunciado: 'Qual é o avanço democrático central da atual LDB de 1996 (Lei nº 9.394) em comparação à legislação da ditadura militar (Lei nº 5.692/71)?',
+            opcoes: [
+              'O retorno da formação estritamente tecnicista e profissionalizante obrigatória no ensino médio.',
+              'A organização da Educação Básica (com Educação Infantil) e Superior, superando a mera preparação para o trabalho e garantindo cidadania e o direito à permanência.',
+              'A volta da disciplina doutrinária obrigatória de Educação Moral e Cívica.',
+              'A redução de direitos e da autonomia das universidades e dos conselhos escolares.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'A LDB de 1996 integrou a Educação Infantil à Educação Básica, valorizou a cidadania, deu autonomia às escolas e garantiu expressamente o direito de permanência do estudante.'
+          }
+        ]
+      },
+      cacaPalavras: {
+        titulo: 'Caça-Palavras: A Educação na República',
+        instrucao: 'Encontre na grade as 6 palavras fundamentais das reformas educacionais republicanas:',
+        palavras: [
+          { palavra: 'CONSTANT', dica: 'Benjamin Constant: organizador do Decreto nº 981 de 1890 no DF' },
+          { palavra: 'GRUPOS', dica: 'Grupos Escolares: modelo paulista que reuniu as escolas isoladas' },
+          { palavra: 'CAMPOS', dica: 'Francisco Campos: ministro da Reforma do Ensino Secundário de 1931' },
+          { palavra: 'CAPANEMA', dica: 'Gustavo Capanema: idealizador das Leis Orgânicas do Estado Novo' },
+          { palavra: 'SENAI', dica: 'Serviço Nacional de Aprendizagem Industrial criado em 1942' },
+          { palavra: 'LDB', dica: 'Leis de Diretrizes e Bases da Educação Nacional (1961 e 1996)' }
+        ],
+        gridSize: 10,
+        fixedGrid: [
+          ['C', 'O', 'N', 'S', 'T', 'A', 'N', 'T', 'E', 'S'],
+          ['P', 'E', 'D', 'R', 'O', 'I', 'I', 'V', 'C', 'O'],
+          ['E', 'G', 'R', 'U', 'P', 'O', 'S', 'X', 'A', 'L'],
+          ['S', 'C', 'O', 'L', 'A', 'R', 'E', 'S', 'M', 'A'],
+          ['C', 'A', 'P', 'A', 'N', 'E', 'M', 'A', 'P', 'I'],
+          ['B', 'R', 'A', 'S', 'I', 'L', 'O', 'F', 'O', 'C'],
+          ['G', 'O', 'S', 'E', 'N', 'A', 'I', 'V', 'S', 'O'],
+          ['V', 'A', 'R', 'G', 'A', 'S', 'R', 'E', 'F', 'S'],
+          ['R', 'E', 'P', 'L', 'D', 'B', 'N', 'A', 'C', 'I'],
+          ['E', 'D', 'U', 'C', 'A', 'C', 'A', 'O', 'E', 'C']
         ]
       }
     }

@@ -11,6 +11,9 @@ import MestraBenedictaEngraving from './illustrations/MestraBenedictaEngraving'
 import ComeniusDidacticaEngraving from './illustrations/ComeniusDidacticaEngraving'
 import EscolaNormalEngraving from './illustrations/EscolaNormalEngraving'
 import InstitutosEducacaoEngraving from './illustrations/InstitutosEducacaoEngraving'
+import GrupoEscolarEngraving from './illustrations/GrupoEscolarEngraving'
+import CapanemaSenaiEngraving from './illustrations/CapanemaSenaiEngraving'
+import MebRadioEngraving from './illustrations/MebRadioEngraving'
 import ComicDialogueSection from './ComicDialogueSection'
 import ThinkersCarouselSection from './ThinkersCarouselSection'
 
@@ -72,6 +75,12 @@ export default function LessonReader({ lesson }) {
         return <EscolaNormalEngraving />
       case 'institutosEducacao':
         return <InstitutosEducacaoEngraving />
+      case 'grupoEscolar':
+        return <GrupoEscolarEngraving />
+      case 'capanemaSenai':
+        return <CapanemaSenaiEngraving />
+      case 'mebRadio':
+        return <MebRadioEngraving />
       default:
         return null
     }
