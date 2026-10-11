@@ -1,4 +1,4 @@
-export default function CapanemaSenaiEngraving({ className = '' }) {
+export function CapanemaSenaiEngraving({ className = '' }) {
   return (
     <div className={`engraving-frame ${className}`}>
       <svg
@@ -106,4 +106,7 @@ export default function CapanemaSenaiEngraving({ className = '' }) {
     </div>
   )
 }
+
+export default CapanemaSenaiEngraving
+
 

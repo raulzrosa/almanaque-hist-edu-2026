@@ -17,6 +17,34 @@ Esse Decreto, além disso, também propôs uma maior organização na fiscaliza�
 
 ---
 
+<details class="vintage-details">
+<summary><strong>🔍 Aprofundamento Opcional: Quem foi Pestalozzi e como funciona o Método Intuitivo? (Clique para expandir)</strong></summary>
+
+<div align="center" style="margin-top: 14px;">
+  <img src="/resumo3-1.png.png" alt="Retrato histórico de Johann Heinrich Pestalozzi" width="280" style="border-radius: 6px; border: 2px solid #b38634; box-shadow: 0 4px 12px rgba(0,0,0,0.15);" />
+  <p><em>Fig. Especial: Johann Heinrich Pestalozzi (1746–1827), o Pai da Pedagogia Moderna e criador do Método Intuitivo.</em></p>
+</div>
+
+> *"A criança não aprende por palavras vazias decoradas na lousa. O conhecimento verdadeiro nasce do contato vivo com a realidade: as coisas antes das palavras, a observação viva antes do conceito!"*  
+> — **Johann Heinrich Pestalozzi** (1746–1827)
+
+#### Quem foi Pestalozzi e a Revolução das "Lições de Coisas"
+Nascido em Zurique, na Suíça, **Johann Heinrich Pestalozzi (1746–1827)** é celebrado como um dos grandes pioneiros da pedagogia moderna. Inspirado pelas ideias iluministas de Jean-Jacques Rousseau, Pestalozzi dedicou toda a sua vida e fortuna a acolher crianças órfãs, camponesas e marginalizadas pelas guerras napoleônicas. Em instituições experimentais como **Neuhof (1774)**, **Stans (1799)** e no célebre **Instituto de Yverdon (1805–1825)**, desenvolveu um modelo que atraiu educadores e filósofos de todo o mundo.
+
+O cerne de sua proposta é o **método intuitivo** (ou *Anschauung*, popularizado nos países anglo-saxões e no Brasil como as **"Lições de Coisas"**). Esse método representou uma ruptura radical com o modelo tradicional escolástico, baseado na memorização cega, no autoritarismo e em castigos físicos:
+- **"As Coisas Antes das Palavras":** A criança deve primeiro ter contato sensorial direto com o mundo real — ver, tocar, cheirar e manusear espécimes da natureza (folhas, sementes, rochas, sólidos geométricos) — para só então aprender a palavra escrita e a definição abstrata correspondente;
+- **A Tríade Integral: Cabeça, Coração e Mãos (*Kopf, Herz und Hand*):** Educar não é apenas acumular conhecimentos intelectuais (*cabeça*), mas formar sentimentos morais de bondade, fraternidade e justiça (*coração*), aliados ao desenvolvimento de habilidades manuais, corporais e práticas (*mãos*);
+- **Do Concreto ao Abstrato:** A inteligência infantil progride naturalmente do mais simples ao mais complexo, do que é conhecido e tangível no cotidiano para as teorias mais abstratas;
+- **A Tríade dos Elementos (Forma, Número e Nome):** Toda percepção sensorial apoia-se em discernir a *forma* (desenho e geometria), medir o *número* (cálculo e quantidade com objetos reais) e expressar o *nome* (linguagem e vocabulário autêntico);
+- **O Afeto no Lugar do Castigo:** A sala de aula deve reproduzir a ternura e o cuidado materno de um lar acolhedor, substituindo o medo pelo respeito mútuo e pelo amor pedagógico.
+
+#### Por que a República Brasileira de 1890 Adotou o Método Intuitivo?
+Ao proclamar a República, o governo provisório precisava romper com os moldes educacionais do Império, vistos como arcaicos e dominados pela memorização de catecismos. O ministro **Benjamin Constant**, imbuído do ideário positivista e iluminista, identificou no método intuitivo a ferramenta ideal para forjar o novo cidadão republicano: um indivíduo crítico, racional, observador da natureza e pautado pelo espírito científico moderno. O **Decreto nº 981 de 1890** institucionalizou, assim, as "Lições de Coisas" como o coração pedagógico das escolas públicas do Distrito Federal.
+
+</details>
+
+---
+
 ### 2. A Emergência dos Grupos Escolares e as Escolas Subvencionadas (1893)
 Um pouco depois, em **1893**, apareceram os chamados **grupos escolares**. Inicialmente no Estado de São Paulo, foi uma proposta de reunir, em um mesmo estabelecimento, diferentes classes que antes funcionavam de forma isolada:
 - **As escolas isoladas** eram escolas que possuíam um único professor, que dava aula para crianças de diversas idades e níveis de instrução;

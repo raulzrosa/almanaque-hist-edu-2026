@@ -16,6 +16,7 @@ import CapanemaSenaiEngraving from './illustrations/CapanemaSenaiEngraving'
 import MebRadioEngraving from './illustrations/MebRadioEngraving'
 import ComicDialogueSection from './ComicDialogueSection'
 import ThinkersCarouselSection from './ThinkersCarouselSection'
+import PestalozziSection from './PestalozziSection'
 
 export default function LessonReader({ lesson }) {
   // Modo de visualização: 'pontos' (tópicos ilustrados) ou 'corrido' (texto integral)
@@ -173,6 +174,11 @@ export default function LessonReader({ lesson }) {
               {/* Sessão Especial entre o Ponto 1 e o Ponto 2 (Lutero & Comênio na Aula 06) */}
               {((idx === 0 && lesson.numero === 6) || ponto.secaoEspecialApos) && (
                 <ComicDialogueSection />
+              )}
+
+              {/* Sessão Especial entre o Ponto 1 e o Ponto 2 (Pestalozzi na Aula 03) */}
+              {idx === 0 && lesson.numero === 3 && (
+                <PestalozziSection />
               )}
 
               {/* Sessão Especial após o Ponto 2 (Carrossel dos 3 Pensadores na Aula 06) */}

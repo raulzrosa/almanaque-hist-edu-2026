@@ -103,13 +103,13 @@ export default function CuriosityCard({ curiosidade }) {
 
           {/* Corpo do Balão com a Fala da Coruja */}
           <div className="corugari-speech-bubble">
-            {/* Título da Curiosidade */}
-            <h3 className="speech-curiosity-title">{cleanTitle}</h3>
-
             {/* Fala Principal da Mascote */}
             <div className="speech-lead-quote">
               "Atenção, caros estudantes e mestres! Abram bem os olhos para este fascinante registro que guardo nos arquivos do meu gabinete:"
             </div>
+
+            {/* Título da Curiosidade */}
+            <h3 className="speech-curiosity-title">{cleanTitle}</h3>
 
             <p className="speech-body-text">{curiosidade.texto}</p>
 

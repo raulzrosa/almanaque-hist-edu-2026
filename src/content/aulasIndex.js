@@ -452,6 +452,10 @@ export const AULAS = [
     ],
     conceitosChave: [
       {
+        termo: 'Pestalozzi & Método Intuitivo',
+        descricao: 'Johann Heinrich Pestalozzi (1746–1827): "Lições de Coisas", aprendizado sensível ("as coisas antes das palavras") e a tríade cabeça, coração e mãos.'
+      },
+      {
         termo: 'Decreto nº 981 (1890)',
         descricao: 'Reforma de Benjamin Constant no DF: ensino laico, gratuito e adoção do método intuitivo com ginásio de 7 anos.'
       },

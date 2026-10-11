@@ -1,4 +1,4 @@
-export default function MebRadioEngraving({ className = '' }) {
+export function MebRadioEngraving({ className = '' }) {
   return (
     <div className={`engraving-frame ${className}`}>
       <svg
@@ -123,4 +123,7 @@ export default function MebRadioEngraving({ className = '' }) {
     </div>
   )
 }
+
+export default MebRadioEngraving
+
 

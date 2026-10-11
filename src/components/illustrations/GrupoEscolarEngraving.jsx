@@ -1,4 +1,4 @@
-export default function GrupoEscolarEngraving({ className = '' }) {
+export function GrupoEscolarEngraving({ className = '' }) {
   return (
     <div className={`engraving-frame ${className}`}>
       <svg
@@ -107,4 +107,7 @@ export default function GrupoEscolarEngraving({ className = '' }) {
     </div>
   )
 }
+
+export default GrupoEscolarEngraving
+
 
