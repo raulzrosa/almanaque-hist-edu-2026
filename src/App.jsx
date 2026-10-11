@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { AULAS } from './content/aulasIndex'
 import AlmanacHeader from './components/AlmanacHeader'
 import AlmanacNavigation from './components/AlmanacNavigation'
@@ -10,7 +10,8 @@ import HistoryQuiz from './components/HistoryQuiz'
 import Crossword from './components/Crossword'
 import TimelineChallenge from './components/TimelineChallenge'
 import CelestialSchoolGame from './components/CelestialSchoolGame'
-import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock, FileText, BookOpen, Orbit } from 'lucide-react'
+import MemoryGame from './components/MemoryGame'
+import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock, FileText, BookOpen, Orbit, GraduationCap } from 'lucide-react'
 import './styles/almanaque.css'
 
 export default function App() {
@@ -20,6 +21,11 @@ export default function App() {
   const [showHowToAddModal, setShowHowToAddModal] = useState(false)
 
   const currentLesson = AULAS[currentLessonIndex] || AULAS[0]
+
+  useEffect(() => {
+    const firstTab = currentLesson.passatempos ? Object.keys(currentLesson.passatempos)[0] : ''
+    setActiveTab(firstTab || '')
+  }, [currentLessonIndex, currentLesson])
   const page1Number = currentLesson.numero * 2 - 1
   const page2Number = currentLesson.numero * 2
 
@@ -29,6 +35,8 @@ export default function App() {
 
   const getTabInfo = (key) => {
     switch (key) {
+      case 'jogoMemoria':
+        return { label: 'Jogo da Memória: Mulheres Inovadoras', icon: <GraduationCap size={14} /> }
       case 'cacaPalavras':
         return { label: 'Caça-Palavras', icon: <Sparkles size={14} /> }
       case 'quiz':
@@ -149,6 +157,10 @@ export default function App() {
                       )
                     })}
                   </div>
+
+                  {currentTab === 'jogoMemoria' && passatempos.jogoMemoria && (
+                    <MemoryGame config={passatempos.jogoMemoria} />
+                  )}
 
                   {currentTab === 'cacaPalavras' && passatempos.cacaPalavras && (
                     <WordSearch config={passatempos.cacaPalavras} />

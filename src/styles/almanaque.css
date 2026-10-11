@@ -3885,40 +3885,932 @@ body {
   text-transform: uppercase;
 }
 
-.celestial-completion-banner p {
+/* ==========================================================================
+   JOGO DA MEMÓRIA: MULHERES E INOVAÇÃO DOCENTE (AULA 05)
+   ========================================================================== */
+
+.memory-game-root {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Cabeçalho do Jogo */
+.memory-game-header {
+  text-align: center;
+  padding: 16px 20px 20px;
+  background: linear-gradient(180deg, rgba(253, 250, 242, 0.95) 0%, rgba(247, 242, 228, 0.85) 100%);
+  border: 1px solid var(--border-vintage);
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.memory-header-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-ruby);
+  background: rgba(140, 36, 24, 0.08);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(140, 36, 24, 0.2);
+  margin-bottom: 8px;
+}
+
+.memory-header-badge .gold-icon {
+  color: var(--color-gold);
+}
+
+.memory-game-title {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  color: var(--color-ruby-dark);
+  margin: 0 0 6px;
+  letter-spacing: 0.03em;
+}
+
+.memory-game-subtitle {
   font-family: var(--font-editorial);
   font-size: 0.95rem;
-  line-height: 1.6;
-  color: #ded1b8;
-  max-width: 800px;
+  color: var(--ink-secondary);
+  line-height: 1.5;
+  max-width: 720px;
+  margin: 0 auto 16px;
+}
+
+/* Barra de Status e Controles */
+.memory-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(179, 134, 52, 0.35);
+}
+
+.memory-stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  color: var(--ink-primary);
+  background: #fdfaf2;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid var(--border-vintage);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.memory-stat-pill strong {
+  color: var(--color-ruby);
+}
+
+.memory-restart-btn {
+  font-size: 0.82rem;
+  padding: 6px 14px;
+  gap: 6px;
+}
+
+/* Banner de Conclusão / Vitória */
+.memory-victory-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #2a1810 0%, #4a2c1a 50%, #2a1810 100%);
+  border: 2px solid var(--color-gold);
+  border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  color: #fdfaf2;
+  animation: victoryFadeIn 0.5s ease-out;
+}
+
+@keyframes victoryFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.victory-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: radial-gradient(circle, #dfb25f 0%, #8c641c 100%);
+  color: #2a1810;
+  border-radius: 50%;
+  border: 2px solid #ffd57b;
+  flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(223, 178, 95, 0.5);
+}
+
+.victory-text-wrap {
+  flex: 1;
+}
+
+.victory-text-wrap h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: #ffd57b;
+  margin: 0 0 4px;
+  letter-spacing: 0.02em;
+}
+
+.victory-text-wrap p {
+  font-family: var(--font-editorial);
+  font-size: 0.9rem;
+  color: #e8dbc4;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.memory-play-again-btn {
+  background: linear-gradient(to bottom, #dfb25f, #b38634);
+  color: #221a15;
+  border-color: #ffd57b;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.memory-play-again-btn:hover {
+  background: linear-gradient(to bottom, #f0c978, #c49642);
+}
+
+/* Grade de Cartas (16 cartas: 4x4) */
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  perspective: 1200px;
+}
+
+@media (max-width: 768px) {
+  .memory-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .memory-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* Cartas Individuais */
+.memory-card {
+  aspect-ratio: 3 / 4;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.memory-card:hover:not(:disabled) {
+  transform: translateY(-4px);
+}
+
+.memory-card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  border-radius: 8px;
+}
+
+.memory-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.memory-card.flipped .memory-card-inner,
+.memory-card.matched .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-card.matched .memory-card-inner {
+  box-shadow: 0 0 0 2px var(--color-gold), 0 6px 16px rgba(179, 134, 52, 0.3);
+}
+
+/* Faces da Carta */
+.memory-card-back,
+.memory-card-front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Verso da Carta: Gravura Vintage de Baralho/Almanaque */
+.memory-card-back {
+  background: 
+    radial-gradient(ellipse at center, #3d2719 0%, #1f130b 100%);
+  border: 2px solid #b38634;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+}
+
+.card-ornament-border {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(223, 178, 95, 0.5);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    repeating-linear-gradient(45deg, rgba(223, 178, 95, 0.04) 0px, rgba(223, 178, 95, 0.04) 4px, transparent 4px, transparent 8px);
+}
+
+.card-center-seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #4a2f1c 0%, #20130c 100%);
+  border: 1.5px solid #dfb25f;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.card-seal-icon {
+  color: #dfb25f;
+}
+
+.card-seal-text {
+  font-family: var(--font-display);
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #ffd57b;
+  font-weight: 700;
+}
+
+/* Frente da Carta: Retrato da Professora */
+.memory-card-front {
+  background: #fdfaf2;
+  border: 2px solid var(--border-vintage);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-photo-wrapper {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background: #2a2018;
+  overflow: hidden;
+}
+
+.card-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: sepia(0.2) contrast(1.05);
+  transition: transform 0.3s ease;
+}
+
+.memory-card:hover .card-photo-img {
+  transform: scale(1.04);
+}
+
+.card-matched-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: var(--color-ruby);
+  color: #ffd57b;
+  border-radius: 50%;
+  border: 1.5px solid #ffd57b;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  animation: badgePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes badgePop {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+.card-caption {
+  padding: 6px 8px;
+  background: linear-gradient(to bottom, #fdfaf2 0%, #f4ede0 100%);
+  border-top: 1px solid var(--border-vintage);
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.card-prof-name {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-ruby-dark);
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.02em;
+}
+
+/* Galeria de Mestras Descobertas */
+.memory-discovered-gallery {
+  padding: 16px;
+  background: #fdfaf2;
+  border: 1px solid var(--border-vintage);
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.gallery-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.gallery-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--color-ruby);
+  margin: 0;
+  letter-spacing: 0.04em;
+}
+
+.gallery-subtitle {
+  font-family: var(--font-editorial);
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.gallery-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .gallery-strip {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gallery-strip {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+
+.gallery-prof-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  background: #f7f2e4;
+  border: 1px solid var(--border-vintage);
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.gallery-prof-chip.found:hover {
+  background: #fcf6e8;
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(179, 134, 52, 0.2);
+}
+
+.gallery-prof-chip.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #ede6d4;
+}
+
+.chip-avatar-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1.5px solid var(--color-gold);
+  flex-shrink: 0;
+  background: #3a2a1d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chip-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.chip-avatar-placeholder {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #dfb25f;
+}
+
+.chip-name-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+  min-width: 0;
+}
+
+.chip-prof-name {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chip-view-icon {
+  color: var(--color-gold-dark);
+  flex-shrink: 0;
+}
+
+/* Painel do Projeto Historiográfico Embaixo do Jogo */
+.memory-project-footer-box {
+  padding: 24px 28px;
+  background: linear-gradient(180deg, #fbf7ee 0%, #f4ecdc 100%);
+  border: 2px solid var(--color-gold);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(50, 35, 20, 0.08);
+  position: relative;
+  text-align: center;
+}
+
+.project-heraldry-top {
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.project-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-ruby);
+  margin-bottom: 6px;
+}
+
+.project-main-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--color-ruby-dark);
+  margin: 0 0 4px;
+  letter-spacing: 0.04em;
+}
+
+.project-sub-title {
+  font-family: var(--font-editorial);
+  font-size: 1.15rem;
+  color: var(--color-gold-dark);
+  font-weight: 700;
+  font-style: italic;
+  margin: 0 0 16px;
+  letter-spacing: 0.02em;
+}
+
+.project-body-text {
+  text-align: justify;
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: var(--ink-primary);
+  max-width: 820px;
+  margin: 0 auto 20px;
+}
+
+.project-body-text p {
+  margin: 0 0 12px;
+}
+
+.project-source-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: #fdfaf2;
+  border: 1px dashed var(--color-gold);
+  border-radius: 6px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
-/* Responsividade do Observatório Celeste */
-@media (max-width: 840px) {
-  .celestial-objects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.source-label {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-secondary);
+}
 
-  .revelation-body-grid {
+.project-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-editorial);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-ruby);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.project-external-link:hover {
+  color: var(--color-ruby-light);
+}
+
+/* ==========================================================================
+   MODAL DE BIOGRAFIA & INOVAÇÃO DA PROFESSORA ENCONTRADA
+   ========================================================================== */
+
+.memory-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 12, 8, 0.82);
+  backdrop-filter: blur(5px);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.memory-modal-dialog {
+  background: #fdfaf2;
+  border: 2px solid var(--color-gold);
+  border-radius: 10px;
+  max-width: 840px;
+  width: 100%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(179, 134, 52, 0.4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  animation: modalScaleUp 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalScaleUp {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.memory-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  background: #f4ede0;
+  border: 1px solid var(--border-vintage);
+  border-radius: 50%;
+  color: var(--ink-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.memory-modal-close:hover {
+  background: var(--color-ruby);
+  color: #fdfaf2;
+  border-color: var(--color-ruby);
+}
+
+/* Cabeçalho do Modal */
+.memory-modal-header {
+  padding: 24px 28px 16px;
+  border-bottom: 1px solid var(--border-vintage);
+  background: linear-gradient(to bottom, #fcf6e9 0%, #f7f0df 100%);
+  text-align: center;
+}
+
+.modal-badge-found {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #2b6134;
+  background: rgba(43, 97, 52, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(43, 97, 52, 0.3);
+  margin-bottom: 8px;
+}
+
+.modal-prof-title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--color-ruby-dark);
+  margin: 0 0 6px;
+  letter-spacing: 0.02em;
+}
+
+.modal-prof-meta {
+  font-family: var(--font-editorial);
+  font-size: 0.95rem;
+  color: var(--color-gold-dark);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.meta-sep {
+  color: var(--border-vintage);
+}
+
+.modal-prof-role {
+  font-family: var(--font-editorial);
+  font-size: 0.88rem;
+  color: var(--ink-secondary);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Corpo do Modal */
+.memory-modal-body {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  padding: 24px 28px;
+}
+
+@media (max-width: 720px) {
+  .memory-modal-body {
     grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px 20px;
   }
 }
 
-@media (max-width: 520px) {
-  .celestial-objects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .revelation-header {
-    flex-direction: column;
-  }
-
-  .revelation-nav-arrows {
-    width: 100%;
-    justify-content: space-between;
-  }
+/* Coluna do Retrato */
+.modal-portrait-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
+.modal-portrait-frame {
+  position: relative;
+  width: 100%;
+  max-width: 250px;
+  background: #2a1f16;
+  border: 3px solid var(--color-gold);
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.modal-portrait-img {
+  width: 100%;
+  height: 310px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  filter: sepia(0.15) contrast(1.05);
+}
+
+.portrait-plate {
+  padding: 8px 10px;
+  background: linear-gradient(to bottom, #3d2c1f 0%, #24180f 100%);
+  color: #ffd57b;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+  border-top: 1px solid var(--color-gold);
+  letter-spacing: 0.05em;
+}
+
+/* Coluna de Texto e Inovação */
+.modal-info-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-section-card {
+  padding: 16px;
+  background: #faf5e8;
+  border: 1px solid var(--border-vintage);
+  border-radius: 6px;
+}
+
+.section-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-ruby-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.section-card-title .ruby-icon {
+  color: var(--color-ruby);
+}
+
+.section-card-text {
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ink-primary);
+  margin: 0;
+  text-align: justify;
+}
+
+/* DESTAQUE PRINCIPAL: INOVAÇÃO DOCENTE */
+.innovation-card {
+  background: linear-gradient(135deg, #fdf4dc 0%, #f7e6be 100%);
+  border: 2px solid var(--color-gold);
+  box-shadow: inset 0 1px 3px rgba(255, 255, 255, 0.8), 0 3px 10px rgba(179, 134, 52, 0.15);
+  position: relative;
+}
+
+.section-card-title.gold-title {
+  color: #7a4f0b;
+}
+
+.section-card-title .gold-icon {
+  color: #b38634;
+}
+
+.innovation-card-text {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #3b2812;
+  font-weight: 500;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Palavras-chave */
+.modal-keywords-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.keywords-label {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-secondary);
+  text-transform: uppercase;
+}
+
+.keywords-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.kw-chip {
+  font-family: var(--font-editorial);
+  font-size: 0.75rem;
+  background: #f0e6d2;
+  color: var(--ink-secondary);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border-vintage);
+}
+
+.modal-authorship-note {
+  font-family: var(--font-editorial);
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  border-top: 1px dashed var(--border-vintage);
+  padding-top: 8px;
+}
+
+/* Rodapé do Modal */
+.memory-modal-footer {
+  padding: 16px 28px;
+  background: linear-gradient(to top, #f6eedc 0%, #fbf7ee 100%);
+  border-top: 1px solid var(--border-vintage);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modal-footer-source {
+  flex: 1;
+  min-width: 260px;
+}
+
+.footer-source-text {
+  font-family: var(--font-editorial);
+  font-size: 0.82rem;
+  color: var(--ink-secondary);
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.footer-source-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-editorial);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-ruby);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.footer-source-link:hover {
+  color: var(--color-ruby-light);
+}
+
+.memory-modal-continue-btn {
+  background: linear-gradient(to bottom, var(--color-ruby) 0%, var(--color-ruby-dark) 100%);
+  color: #ffd57b;
+  border-color: #ffd57b;
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  padding: 8px 20px;
+}
+
+.memory-modal-continue-btn:hover {
+  background: linear-gradient(to bottom, var(--color-ruby-light) 0%, var(--color-ruby) 100%);
+  color: #fff8e7;
+}
+
 
 
 

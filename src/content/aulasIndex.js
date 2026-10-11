@@ -2,7 +2,10 @@ import aula01Markdown from './aulas/aula-01.md?raw'
 import aula02Markdown from './aulas/aula-02.md?raw'
 import aula03Markdown from './aulas/aula-03.md?raw'
 import aula04Markdown from './aulas/aula-04.md?raw'
+import aula05Markdown from './aulas/aula-05.md?raw'
 import aula06Markdown from './aulas/aula-06.md?raw'
+import { PROFESSORAS_MEMORIA, PROJETO_INFO } from './jogoMemoriaData'
+
 
 export const AULAS = [
   {
@@ -828,6 +831,187 @@ export const AULAS = [
             ],
             teoricoRef: 'O Processo Civilizador e a Escolarização Moderna'
           }
+        ]
+      }
+    }
+  },
+  {
+    id: 'aula-05',
+    numero: 5,
+    slug: 'cultura-escrita-e-imprensa-pedagogica',
+    titulo: 'História da Educação, Cultura Escrita e Imprensa Pedagógica',
+    subtitulo: 'Materialidades do Impresso, Disputas de Gênero e o Protagonismo das Professoras Inovadoras',
+    disciplina: 'História da Educação',
+    semestre: '2026',
+    dataPublicacao: 'Edição nº 5',
+    modulo: 'Cultura Escrita & Relações de Gênero',
+    resumoMarkdown: aula05Markdown,
+    pontosIlustrados: [
+      {
+        id: 'ponto-5-1',
+        numeroRomano: 'I',
+        titulo: 'A Virada Teórica da Cultura Escrita (Anos 1990)',
+        subtitulo: 'Das Leis Oficiais às Práticas Concretas dos Sujeitos Escolares',
+        tipoIlustracao: 'manuscrito',
+        destaqueConceito: 'A Escrita como Prática Cultural',
+        paragrafos: [
+          'A ampliação do campo da História da Educação na década de 1990 provocou uma renovação teórico-metodológica fundamental nas pesquisas brasileiras. O foco historiográfico, que antes recaía de forma quase exclusiva sobre discursos oficiais, decretos governamentais e reformas legislativas, voltou-se para as práticas escolares cotidianas, para os sujeitos e para as diferentes materialidades do escrito.',
+          'Nesse cenário renovado, a cultura escrita consolidou-se como uma categoria essencial de análise: ela é compreendida como o lugar simbólico e material que a escrita assume em diferentes grupos sociais, tempos e espaços, atravessada por relações de poder, classe social e assimetrias de gênero.'
+        ],
+        notaRodape: 'Renovação Historiográfica: A escrita deixa de ser vista como mero receptáculo neutro de informações do passado e passa a ser investigada como produto cultural e político de sua própria época.'
+      },
+      {
+        id: 'ponto-5-2',
+        numeroRomano: 'II',
+        titulo: 'As Fontes Não Falam Sozinhas: O Método Histórico',
+        subtitulo: 'A Materialidade Física do Impresso como Agente Educativo',
+        tipoIlustracao: 'culturaEscolar',
+        destaqueConceito: 'A Forma que Modela o Sentido',
+        paragrafos: [
+          'Com a virada teórico-metodológica, os materiais impressos deixaram de ser tratados apenas como papéis inertes. Um princípio epistemológico basilar dessa abordagem é que as fontes não falam sozinhas: um documento do passado não entrega respostas prontas, sendo o historiador quem precisa formular perguntas rigorosas e investigar quem produziu aquele material, em qual conjuntura e sob quais interesses.',
+          'Além disso, a própria aparência física do impresso importa decisivamente para a pesquisa: a tipografia, o tamanho das fontes, a diagramação, o suporte do papel e as ilustrações eram meticulosamente desenhados para orientar o leitor a pensar, sentir e agir de determinada forma no espaço social.'
+        ],
+        notaRodape: 'Materialidade do Impresso: A disposição visual, o tipo de papel e a paginação orientam e moldam a experiência de leitura e a formação do leitor.'
+      },
+      {
+        id: 'ponto-5-3',
+        numeroRomano: 'III',
+        titulo: 'Impressos que Educam Além da Sala de Aula',
+        subtitulo: 'Do Braille e Boletins aos Manuais de Conduta Social',
+        imagemUrl: '/jogo-memoria/1-Zuleika-de-Barros-Martins-Ferreira.png',
+        legendaIlustracao: 'Profª. Zuleika de Barros Martins Ferreira • Catedrática da Caetano de Campos e pioneira na especialização para ensino de cegos e livros em Braille no Brasil',
+        destaqueConceito: 'Educação para Além dos Muros',
+        paragrafos: [
+          'Outro aspecto decisivo é reconhecer que a ação educativa não ocorre unicamente no interior das salas de aula formais. Conforme demonstra a historiografia dos impressos que educam, materiais plurais — desde livros em Braille confeccionados para e por estudantes cegos, boletins anarquistas e manuais de ginástica, até revistas de variedades e fanzines religiosos — ensinavam comportamentos, papéis sociais, visões corporais e modos de habitar o mundo.',
+          'Mesmo sem ostentar um objetivo pedagógico formal estatal, esses impressos formavam a mentalidade de diferentes estratos sociais. As primeiras cartilhas e transcrições em Braille no Brasil, incentivadas pela professora Zuleika de Barros Ferreira e alunas como Dorina Nowill, exemplificam como a cultura impressa tátil abriu portas inéditas de emancipação para sujeitos historicamente invisibilizados.'
+        ],
+        notaRodape: 'Pedagogias Invisíveis: Periódicos de variedades, manuais e impressos comunitários exercem pedagogia contínua sobre a cultura e a sociedade.'
+      },
+      {
+        id: 'ponto-5-4',
+        numeroRomano: 'IV',
+        titulo: 'Imprensa Pedagógica, Disputas de Gênero e o Chão da Escola',
+        subtitulo: 'A Tensão entre Prescrição Teórica e as Inovações Reais das Professoras',
+        imagemUrl: '/jogo-memoria/7-Carolina-Ribeiro.png',
+        legendaIlustracao: 'Profª. Carolina Ribeiro • Fundadora do célebre jornal escolar "Nosso Esforço" (1936) e primeira mulher Secretária da Educação do Estado de SP (1955)',
+        destaqueConceito: 'Mulheres & Inovação Docente',
+        paragrafos: [
+          'A investigação dos periódicos pedagógicos ilumina as disputas sociais e as relações de gênero no magistério. O caso da "Revista do Ensino de Minas Gerais" é exemplar: embora o governo usasse a revista para difundir a Reforma Francisco Campos, a seção "Nossos Concursos" revelava uma nítida assimetria: diretores e homens dominavam os textos teóricos e administrativos, enquanto as mulheres conquistavam os prêmios práticos de métodos de ensino.',
+          'Isso reforça que o prescrito pelas autoridades no papel nem sempre correspondia ao praticado: nas salas de aula reais, professoras como Maria José Parise, Carolina Ribeiro, Alice Meirelles Reis, Noemy Rudolfer, Olinda Magarotto, Madre Ninetta e Amélia Americano de Castro inventaram métodos, acolheram alunas com deficiência e transformaram a prática pedagógica. Tais trajetórias são resgatadas pelo projeto de pesquisa "Mulheres e inovação docente (São Paulo e França, nas décadas de 1860 a 1960)", parceria da FEUSP com a USPC (disponível em: https://histeduc.wixsite.com/genre-genero).'
+        ],
+        notaRodape: 'Projeto Mulheres e Inovação Docente (FEUSP/USPC): Resgate historiográfico de professoras pioneiras que transformaram a educação a partir do chão da sala de aula (https://histeduc.wixsite.com/genre-genero).'
+      }
+    ],
+    conceitosChave: [
+      {
+        termo: 'Cultura Escrita',
+        descricao: 'Lugar simbólico e material da escrita nos grupos sociais, revelando práticas de poder, classe e gênero para além dos discursos oficiais.'
+      },
+      {
+        termo: 'Materialidade do Impresso',
+        descricao: 'Aparência física do suporte: diagramação, tipografia, papel e ilustrações que direcionam intencionalmente modos de ler e pensar.'
+      },
+      {
+        termo: 'Imprensa Pedagógica & Periódicos',
+        descricao: 'Revistas e jornais escolares (como a Revista do Ensino e o Nosso Esforço) que articulavam prescrições oficiais e práticas docentes.'
+      },
+      {
+        termo: 'Mulheres & Inovação Docente',
+        descricao: 'Pesquisa internacional (FEUSP/USPC) evidenciando que a renovação didática real nasceu do pioneirismo das professoras em sala de aula.'
+      }
+    ],
+    citacaoDestaque: {
+      texto: 'As fontes não falam sozinhas: é preciso interrogar quem as produziu e por que vias materiais circularam. No chão das salas de aula, professoras anônimas subverteram limitações de gênero e inventaram métodos que transformaram para sempre a educação brasileira.',
+      fonte: 'Síntese Historiográfica & Projeto Mulheres e Inovação Docente (FEUSP / USPC) • Aula 05'
+    },
+    curiosidade: {
+      titulo: 'Gabinete de Curiosidades: Mulheres e Inovação Docente (FEUSP & USPC)',
+      texto: 'Por décadas, a História da Educação narrou grandes reformas sob a ótica de ministros e homens públicos. O projeto internacional "Mulheres e inovação docente (São Paulo e França, nas décadas de 1860 a 1960)", desenvolvido pela Faculdade de Educação da USP (Universidade de São Paulo) com a USPC (Université Sorbonne Paris Cité), elabora as biografias de professoras primárias e secundárias que inovaram o cotidiano docente em zonas rurais, urbanas e no ensino especial, e que permaneciam praticamente desconhecidas. A maioria construiu sua trajetória em sala de aula, demonstrando as múltiplas formas de ser mulher e professora no Brasil. Todas as biografias e imagens do jogo da memória desta edição foram obtidas através do acervo do projeto: https://histeduc.wixsite.com/genre-genero.',
+      curiosidadeExtra: '💡 Você sabia? Na seção "Nossos Concursos" da Revista do Ensino de Minas Gerais, as professoras venciam sistematicamente as premiações sobre como dar aula e como mediar o aprendizado com as crianças, provando que a verdadeira inovação didática nascia no calor da prática pedagógica cotidiana!'
+    },
+    passatempos: {
+      jogoMemoria: {
+        titulo: 'Jogo da Memória: Mulheres & Inovação Docente',
+        instrucao: 'Encontre os pares das 8 professoras pioneiras e descubra no modal detalhado as biografias e inovações que marcaram a educação.',
+        projetoInfo: PROJETO_INFO,
+        professoras: PROFESSORAS_MEMORIA
+      },
+      quiz: {
+        titulo: 'Sabatina Historiográfica: Cultura Escrita e Inovação Feminina',
+        perguntas: [
+          {
+            id: 1,
+            enunciado: 'O que caracterizou a virada metodológica nos estudos de História da Educação a partir da década de 1990 no Brasil?',
+            opcoes: [
+              'O abandono do estudo de qualquer documento escrito em benefício exclusivo de lendas folclóricas.',
+              'O deslocamento do foco exclusivo em leis e reformas oficiais para as práticas cotidianas escolares, os sujeitos e as materialidades da cultura escrita.',
+              'A proibição do estudo de jornais e periódicos pedagógicos na pesquisa universitária.',
+              'A crença de que os decretos governamentais explicavam perfeitamente tudo o que acontecia nas salas de aula.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'A virada dos anos 1990 passou a interrogar as práticas cotidianas, os sujeitos reais (como as professoras) e as materialidades concretas dos impressos escolares.'
+          },
+          {
+            id: 2,
+            enunciado: 'Por que no método historiográfico atual se afirma categoricamente que "as fontes não falam sozinhas"?',
+            opcoes: [
+              'Porque documentos impressos antigos não contêm nenhuma informação legível.',
+              'Porque o historiador precisa interrogar ativamente a fonte, investigando quem a produziu, em que contexto e com quais objetivos e interesses.',
+              'Porque as fontes só podem ser lidas se houver uma gravação de áudio acompanhando o papel.',
+              'Porque os autores do passado sempre mentiam intencionalmente em todos os relatórios.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'Um documento antigo não fornece verdades prontas: ele requer análise crítica sobre contexto, intencionalidade, materialidade e suporte.'
+          },
+          {
+            id: 3,
+            enunciado: 'Na seção "Nossos Concursos" da Revista do Ensino de Minas Gerais, qual disparidade de gênero chamava atenção nos textos publicados?',
+            opcoes: [
+              'As mulheres eram expressamente proibidas por lei de enviar qualquer texto para a revista.',
+              'Homens (na maioria diretores) dominavam os artigos teóricos e administrativos, enquanto as mulheres ganhavam a maioria dos prêmios práticos de metodologia de sala de aula.',
+              'Não havia nenhuma diferença na participação entre homens e mulheres na revista.',
+              'Apenas crianças do ensino fundamental podiam concorrer aos prêmios literários da publicação.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'A imprensa pedagógica refletia as hierarquias de gênero da época, mas evidenciava que a criatividade prática da docência pertencia às professoras.'
+          },
+          {
+            id: 4,
+            enunciado: 'Qual é o principal objetivo do projeto "Mulheres e inovação docente (São Paulo e França, nas décadas de 1860 a 1960)", desenvolvido pela FEUSP e USPC?',
+            opcoes: [
+              'Comprovar que as reformas educacionais foram criadas unicamente por ministros e secretários de Estado.',
+              'Resgatar as biografias de professoras que inovaram a prática docente em sala de aula (no ensino comum, rural e especial) e que permaneciam desconhecidas pela história oficial.',
+              'Excluir o estudo da história da educação brasileira das universidades francesas.',
+              'Digitalizar exclusivamente livros didáticos de matemática do século XIX.'
+            ],
+            respostaCorreta: 1,
+            explicacao: 'O projeto FEUSP/USPC elabora biografias de professoras pioneiras que transformaram a prática pedagógica mas permaneceram invisibilizadas pela historiografia tradicional.'
+          }
+        ]
+      },
+      cacaPalavras: {
+        titulo: 'Caça-Palavras: Cultura Escrita & Pioneiras',
+        instrucao: 'Localize na grade as 6 palavras-chave sobre cultura escrita, imprensa pedagógica e gênero:',
+        palavras: [
+          { palavra: 'ESCRITA', dica: 'Cultura escrita: dimensão simbólica e material das práticas letradas' },
+          { palavra: 'IMPRENSA', dica: 'Periódicos e revistas pedagógicas que difundiam métodos e debates' },
+          { palavra: 'FONTES', dica: 'Documentos do passado que precisam ser interrogados pelo pesquisador' },
+          { palavra: 'GENERO', dica: 'Relações sociais e assimetrias que permeavam a carreira do magistério' },
+          { palavra: 'INOVACAO', dica: 'Práticas pedagógicas criativas desenvolvidas no chão da escola' },
+          { palavra: 'BRAILLE', dica: 'Sistema tátil de escrita e leitura introduzido no ensino de cegos' }
+        ],
+        gridSize: 10,
+        fixedGrid: [
+          ['I', 'M', 'P', 'R', 'E', 'N', 'S', 'A', 'P', 'R'],
+          ['E', 'S', 'C', 'R', 'I', 'T', 'A', 'S', 'I', 'O'],
+          ['G', 'E', 'N', 'E', 'R', 'O', 'M', 'O', 'V', 'L'],
+          ['B', 'R', 'A', 'I', 'L', 'L', 'E', 'F', 'O', 'I'],
+          ['I', 'N', 'O', 'V', 'A', 'C', 'A', 'O', 'N', 'N'],
+          ['F', 'O', 'N', 'T', 'E', 'S', 'P', 'A', 'U', 'D'],
+          ['D', 'O', 'C', 'E', 'N', 'T', 'E', 'S', 'R', 'A'],
+          ['M', 'U', 'L', 'H', 'E', 'R', 'E', 'S', 'S', 'E'],
+          ['F', 'E', 'U', 'S', 'P', 'U', 'S', 'P', 'C', 'U'],
+          ['H', 'I', 'S', 'T', 'E', 'D', 'U', 'C', 'O', 'S']
         ]
       }
     }
