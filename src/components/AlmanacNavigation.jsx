@@ -1,11 +1,9 @@
-import { BookMarked, ChevronLeft, ChevronRight, BookOpen, FileText } from 'lucide-react'
+import { BookMarked, ChevronLeft, ChevronRight } from 'lucide-react'
 
 export default function AlmanacNavigation({
   aulas,
   currentLessonIndex,
   onSelectLesson,
-  activePageView,
-  onChangePageView
 }) {
 
   const handlePrevLesson = () => {
@@ -67,29 +65,6 @@ export default function AlmanacNavigation({
         >
           Próxima <ChevronRight size={16} />
         </button>
-      </div>
-
-      {/* Alternância de Página (Página 1: Resumo vs Página 2: Passatempos) */}
-      <div className="nav-view-actions">
-        <span className="nav-label">Página:</span>
-        <div className="nav-view-buttons">
-          <button
-            type="button"
-            className={`btn-vintage btn-vintage-outline ${activePageView === 'page1' ? 'active' : ''}`}
-            onClick={() => onChangePageView('page1')}
-            title="Ver a Página 1 (Resumo Crítico da Aula)"
-          >
-            <FileText size={14} /> <span>Pág. 1 (Resumo)</span>
-          </button>
-          <button
-            type="button"
-            className={`btn-vintage btn-vintage-outline ${activePageView === 'page2' ? 'active' : ''}`}
-            onClick={() => onChangePageView('page2')}
-            title="Ver a Página 2 (Gabinete de Curiosidades & Passatempos)"
-          >
-            <BookOpen size={14} /> <span>Pág. 2 (Passatempos)</span>
-          </button>
-        </div>
       </div>
     </nav>
   )

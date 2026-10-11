@@ -1,6 +1,6 @@
-export default function AlmanacPage({ pageNumber, topic, edition, children, className = '' }) {
+export default function AlmanacPage({ pageNumber, topic, edition, children, className = '', ...props }) {
   return (
-    <article className={`almanac-page ${className}`}>
+    <article className={`almanac-page ${className}`} {...props}>
       {/* Moldura ornamental dupla clássica */}
       <div className="page-ornate-border"></div>
       <div className="corner-accent corner-tl"></div>

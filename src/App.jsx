@@ -9,7 +9,7 @@ import WordSearch from './components/WordSearch'
 import HistoryQuiz from './components/HistoryQuiz'
 import Crossword from './components/Crossword'
 import TimelineChallenge from './components/TimelineChallenge'
-import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock } from 'lucide-react'
+import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock, FileText, BookOpen } from 'lucide-react'
 import './styles/almanaque.css'
 
 export default function App() {
@@ -60,17 +60,53 @@ export default function App() {
         aulas={AULAS}
         currentLessonIndex={currentLessonIndex}
         onSelectLesson={setCurrentLessonIndex}
-        activePageView={activePageView}
-        onChangePageView={setActivePageView}
       />
 
       {/* Palco do Almanaque (Área das Páginas em Modo Página Única) */}
       <main className="almanac-stage">
         <div className="almanac-spread single-page-mode">
           
+          {/* Abas Coladas ao Spread */}
+          <div className="almanac-spread-tabs" role="tablist" aria-label="Abas das Páginas do Almanaque">
+            <button
+              type="button"
+              role="tab"
+              id="tab-page-1"
+              aria-selected={activePageView === 'page1'}
+              aria-controls="panel-page-1"
+              className={`almanac-spread-tab ${activePageView === 'page1' ? 'active' : ''}`}
+              onClick={() => setActivePageView('page1')}
+              title="Abrir Página 1: Resumo Crítico da Aula"
+            >
+              <FileText size={16} className="spread-tab-icon" />
+              <span className="spread-tab-title">Página 1</span>
+              <span className="spread-tab-sep">•</span>
+              <span className="spread-tab-subtitle">Resumo Crítico</span>
+            </button>
+
+            <button
+              type="button"
+              role="tab"
+              id="tab-page-2"
+              aria-selected={activePageView === 'page2'}
+              aria-controls="panel-page-2"
+              className={`almanac-spread-tab ${activePageView === 'page2' ? 'active' : ''}`}
+              onClick={() => setActivePageView('page2')}
+              title="Abrir Página 2: Gabinete de Curiosidades & Passatempos"
+            >
+              <BookOpen size={16} className="spread-tab-icon" />
+              <span className="spread-tab-title">Página 2</span>
+              <span className="spread-tab-sep">•</span>
+              <span className="spread-tab-subtitle">Passatempos & Jogos</span>
+            </button>
+          </div>
+
           {/* PÁGINA 1: RESUMO CRÍTICO DA AULA */}
           {activePageView === 'page1' && (
             <AlmanacPage
+              id="panel-page-1"
+              role="tabpanel"
+              aria-labelledby="tab-page-1"
               pageNumber={page1Number}
               topic={currentLesson.modulo || 'História da Educação'}
               edition={currentLesson.dataPublicacao}
@@ -82,6 +118,9 @@ export default function App() {
           {/* PÁGINA 2: GABINETE DE CURIOSIDADES & PASSATEMPOS */}
           {activePageView === 'page2' && (
             <AlmanacPage
+              id="panel-page-2"
+              role="tabpanel"
+              aria-labelledby="tab-page-2"
               pageNumber={page2Number}
               topic="Gabinete de Curiosidades e Jogos da Dra. Corugari"
               edition="Almanaque Ilustrado"

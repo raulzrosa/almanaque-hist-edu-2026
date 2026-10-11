@@ -17,14 +17,6 @@ export default function AlmanacHeader() {
           Caderno de Estudos & Resumos Críticos de História da Educação
         </p>
 
-        <div className="header-badges">
-          <span className="vintage-pill">
-            <GraduationCap size={14} /> Disciplina: História da Educação
-          </span>
-          <span className="vintage-pill">
-            <Sparkles size={14} /> Resumos & Passatempos Culturais
-          </span>
-        </div>
       </div>
     </header>
   )

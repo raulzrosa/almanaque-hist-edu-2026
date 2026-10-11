@@ -237,20 +237,6 @@ body {
   white-space: nowrap;
 }
 
-.nav-view-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 0;
-}
-
-.nav-view-buttons {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  min-width: 0;
-}
 
 .btn-vintage {
   display: inline-flex;
@@ -309,7 +295,8 @@ body {
   flex: 1;
   max-width: 1100px;
   width: 96%;
-  margin: 24px auto 40px;
+  margin: 52px auto 40px;
+  position: relative;
 }
 
 /* Disposição da Página do Almanaque (Página Única) */
@@ -334,10 +321,115 @@ body {
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
+  position: relative;
 }
 
 .almanac-spread.single-page-mode::after {
   display: none;
+}
+
+/* ==========================================================================
+   ABAS DA PÁGINA (COLADAS AO ALMANAC-SPREAD)
+   ========================================================================== */
+
+.almanac-spread-tabs {
+  position: absolute;
+  bottom: 100%;
+  left: 16px;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  z-index: 10;
+  user-select: none;
+}
+
+.almanac-spread-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px 8px;
+  background: linear-gradient(to bottom, #291e16 0%, #1b130e 100%);
+  color: #ad9a7e;
+  border: 1px solid rgba(179, 134, 52, 0.35);
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.35);
+  line-height: 1.2;
+}
+
+.almanac-spread-tab:hover {
+  background: linear-gradient(to bottom, #3b2a1f 0%, #261b14 100%);
+  color: #dfb25f;
+  border-color: rgba(223, 178, 95, 0.6);
+  transform: translateY(-2px);
+}
+
+.almanac-spread-tab.active {
+  background: linear-gradient(to bottom, #9b2a1c 0%, #6c1a10 100%);
+  color: #fff6e5;
+  border: 1.5px solid var(--color-gold-light);
+  border-bottom: 2px solid #6c1a10;
+  margin-bottom: -1px;
+  padding-bottom: 10px;
+  font-weight: 800;
+  z-index: 12;
+  box-shadow: 
+    0 -5px 14px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(223, 178, 95, 0.25);
+  transform: translateY(0);
+}
+
+.almanac-spread-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #6c1a10;
+  z-index: 13;
+}
+
+.almanac-spread-tab:focus-visible {
+  outline: 2px solid var(--color-gold-light);
+  outline-offset: 2px;
+}
+
+.spread-tab-icon {
+  flex-shrink: 0;
+  color: var(--color-gold);
+  transition: color 0.2s ease;
+}
+
+.almanac-spread-tab.active .spread-tab-icon {
+  color: #fff6e5;
+}
+
+.spread-tab-title {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.spread-tab-sep {
+  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+.spread-tab-subtitle {
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+  white-space: nowrap;
 }
 
 /* ==========================================================================
@@ -1806,6 +1898,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .timeline-years-list, .timeline-events-list {
@@ -1960,33 +2053,44 @@ body {
     font-size: 0.82rem;
   }
 
-  .nav-view-actions {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+  .almanac-stage {
+    margin-top: 48px;
   }
 
-  .nav-view-buttons {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
-
-  .nav-view-buttons .btn-vintage {
-    flex: 1 1 calc(33.333% - 6px);
-    min-width: 85px;
-    padding: 6px 8px;
-    font-size: 0.74rem;
-    justify-content: center;
-    text-align: center;
-    box-sizing: border-box;
-    letter-spacing: 0;
+  .almanac-spread-tabs {
+    left: 12px;
+    right: 12px;
+    gap: 4px;
   }
 }
 
 @media (max-width: 640px) {
+  .almanac-stage {
+    margin-top: 44px;
+  }
+
+  .almanac-spread-tabs {
+    left: 8px;
+    right: 8px;
+    gap: 4px;
+  }
+
+  .almanac-spread-tab {
+    flex: 1 1 0;
+    justify-content: center;
+    padding: 8px 6px;
+    font-size: 0.76rem;
+    gap: 6px;
+  }
+
+  .spread-tab-sep {
+    display: none;
+  }
+
+  .spread-tab-subtitle {
+    display: none;
+  }
+
   .almanac-page {
     padding: 20px 16px;
   }
@@ -2083,10 +2187,6 @@ body {
     font-size: 0.74rem;
   }
 
-  .nav-view-buttons .btn-vintage {
-    font-size: 0.7rem;
-    padding: 6px 4px;
-  }
 
   .ribbon-bookmark {
     display: none;
