@@ -14,6 +14,7 @@ import InstitutosEducacaoEngraving from './illustrations/InstitutosEducacaoEngra
 import GrupoEscolarEngraving from './illustrations/GrupoEscolarEngraving'
 import CapanemaSenaiEngraving from './illustrations/CapanemaSenaiEngraving'
 import MebRadioEngraving from './illustrations/MebRadioEngraving'
+import CulturaEscolarEngraving from './illustrations/CulturaEscolarEngraving'
 import ComicDialogueSection from './ComicDialogueSection'
 import ThinkersCarouselSection from './ThinkersCarouselSection'
 import PestalozziSection from './PestalozziSection'
@@ -82,6 +83,8 @@ export default function LessonReader({ lesson }) {
         return <CapanemaSenaiEngraving />
       case 'mebRadio':
         return <MebRadioEngraving />
+      case 'culturaEscolar':
+        return <CulturaEscolarEngraving />
       default:
         return null
     }

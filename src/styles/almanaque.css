@@ -3360,29 +3360,566 @@ body {
   box-shadow: 0 1px 4px rgba(140, 36, 24, 0.4);
 }
 
-/* Responsividade Mobile para o Carrossel */
-@media (max-width: 768px) {
-  .thinkers-tabs {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
+/* ==========================================================================
+   AULA 04: OBSERVATÓRIO CELESTE & O COSMOS DA CULTURA ESCOLAR
+   ========================================================================== */
 
-  .thinker-card-display {
-    flex-direction: column;
-    padding: 16px;
-    gap: 16px;
-  }
+.celestial-game-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
 
-  .thinker-portrait-column {
-    flex: 0 0 auto;
-    max-width: 200px;
-    margin: 0 auto;
-  }
+/* Cabeçalho do Observatório */
+.celestial-header {
+  background: linear-gradient(135deg, rgba(38, 25, 17, 0.95), rgba(20, 14, 10, 0.98));
+  border: 1.5px solid var(--color-gold);
+  border-radius: 6px;
+  padding: 20px 24px;
+  color: #fff6e5;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
 
-  .thinker-img {
-    height: 220px;
+.celestial-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-light), transparent);
+}
+
+.celestial-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.celestial-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(140, 36, 24, 0.4);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-light);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+.celestial-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #dfb25f;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 4px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(223, 178, 95, 0.3);
+}
+
+.celestial-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff4e0;
+  margin: 4px 0 6px;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.celestial-lead {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.02rem;
+  color: #ded1b8;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.celestial-instructions {
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: var(--color-gold-light);
+  border-top: 1px dashed rgba(179, 134, 52, 0.4);
+  padding-top: 8px;
+}
+
+/* Grade de Cartões dos Objetos Celestes */
+.celestial-objects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.celestial-card-btn {
+  background: linear-gradient(145deg, #fdfaf2 0%, #f4e9d0 100%);
+  border: 1.5px solid #cbb898;
+  border-radius: 6px;
+  padding: 14px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 3px 8px rgba(50, 35, 20, 0.1);
+  text-align: center;
+  outline: none;
+}
+
+.celestial-card-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-gold);
+  box-shadow: 0 8px 18px rgba(179, 134, 52, 0.25);
+  background: linear-gradient(145deg, #fffef9 0%, #faefd8 100%);
+}
+
+.celestial-card-btn.selected {
+  border: 2px solid var(--color-ruby);
+  background: linear-gradient(145deg, #fffcf6 0%, #f7ebd0 100%);
+  box-shadow: 
+    0 0 0 2px var(--color-gold),
+    0 8px 22px rgba(140, 36, 24, 0.25);
+  transform: translateY(-2px);
+}
+
+.celestial-card-numeral {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--color-ruby);
+  background: rgba(140, 36, 24, 0.1);
+  border: 1px solid rgba(140, 36, 24, 0.2);
+  padding: 2px 6px;
+  border-radius: 3px;
+  line-height: 1;
+}
+
+.celestial-check-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #8c641c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.celestial-card-btn.selected .celestial-check-badge {
+  color: var(--color-ruby);
+}
+
+.celestial-art-frame {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #19120c;
+  border: 2px solid var(--color-gold);
+  margin: 10px 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.celestial-card-btn:hover .celestial-art-frame {
+  transform: scale(1.06);
+  border-color: #dfb25f;
+}
+
+.celestial-card-btn.selected .celestial-art-frame {
+  border-color: #ffd57b;
+  box-shadow: 0 0 14px rgba(223, 178, 95, 0.5), inset 0 0 12px rgba(0, 0, 0, 0.9);
+}
+
+.celestial-object-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.celestial-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+}
+
+.celestial-card-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--ink-primary);
+  line-height: 1.25;
+}
+
+.celestial-card-metaphor {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 0.78rem;
+  color: var(--color-ruby);
+  line-height: 1.2;
+}
+
+/* Painel de Revelação do Objeto Celeste */
+.celestial-revelation-panel {
+  background: var(--bg-page-inner);
+  border: 2px solid var(--color-gold);
+  border-radius: 8px;
+  padding: 22px;
+  box-shadow: 
+    0 10px 25px rgba(50, 35, 20, 0.15),
+    inset 0 0 20px rgba(179, 134, 52, 0.1);
+  position: relative;
+  overflow: hidden;
+  animation: fadeInPanel 0.25s ease-out;
+}
+
+@keyframes fadeInPanel {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
+
+.celestial-revelation-panel::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 1px dashed var(--color-ruby);
+  pointer-events: none;
+  opacity: 0.45;
+  border-radius: 6px;
+}
+
+.revelation-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.revelation-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1.5px solid #d8caa7;
+  padding-bottom: 12px;
+}
+
+.revelation-titles {
+  flex: 1;
+}
+
+.revelation-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-ruby);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.revelation-astro-name {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--ink-primary);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.revelation-nav-arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.btn-celestial-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: #f4ecd6;
+  border: 1px solid var(--color-gold);
+  color: var(--ink-secondary);
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-celestial-nav:hover:not(:disabled) {
+  background: var(--color-gold);
+  color: #19120c;
+}
+
+.btn-celestial-nav:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.revelation-index-indicator {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  font-weight: 700;
+}
+
+/* Grid de duas colunas */
+.revelation-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 20px;
+}
+
+.revelation-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.revelation-box-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--ink-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+  border-bottom: 1px dashed #d1c1a2;
+  padding-bottom: 4px;
+}
+
+.revelation-box-label.highlight-label {
+  color: var(--color-ruby);
+}
+
+.metaphor-column {
+  background: #f7edd8;
+  border: 1px solid #d4c2a3;
+  border-radius: 6px;
+  padding: 14px;
+}
+
+.metaphor-quote {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: #3b2c1e;
+  margin: 0 0 12px;
+  border-left: 3px solid var(--color-gold);
+  padding-left: 10px;
+}
+
+.metaphor-engraving-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(179, 134, 52, 0.35);
+}
+
+.mini-engraving-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #19120c;
+  border: 1.5px solid var(--color-gold);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.metaphor-hint {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+/* Coluna da Escola */
+.school-column {
+  background: #fbf6ea;
+  border: 1px solid #d9ccb2;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+
+.school-concept-title {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 800;
+  color: var(--color-ruby);
+  margin: 0 0 10px;
+}
+
+.school-explanation-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.school-explanation-text p {
+  margin: 0;
+  text-align: justify;
+}
+
+.school-theory-tag {
+  margin-top: 12px;
+  padding: 6px 10px;
+  background: #eee3cb;
+  border-left: 3px solid var(--color-ruby);
+  font-size: 0.8rem;
+  color: var(--ink-secondary);
+  font-family: var(--font-display);
+}
+
+.school-theory-tag strong {
+  color: var(--color-ruby-dark);
+}
+
+/* Rodapé da Revelação */
+.revelation-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #d1c1a2;
+}
+
+.revelation-footer-hint {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  font-style: italic;
+  max-width: 500px;
+}
+
+/* Banner de Cosmologia Completa */
+.celestial-completion-banner {
+  background: linear-gradient(135deg, #2b1c14 0%, #17100b 100%);
+  border: 2px solid var(--color-gold-light);
+  border-radius: 6px;
+  padding: 20px;
+  color: #fff4e0;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.celestial-completion-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-light), transparent);
+}
+
+.completion-heraldry {
+  font-size: 1.3rem;
+  color: var(--color-gold-light);
+  letter-spacing: 0.25em;
+  margin-bottom: 6px;
+}
+
+.celestial-completion-banner h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffd57b;
+  margin: 0 0 8px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.celestial-completion-banner p {
+  font-family: var(--font-editorial);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ded1b8;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Responsividade do Observatório Celeste */
+@media (max-width: 840px) {
+  .celestial-objects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .revelation-body-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .celestial-objects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .revelation-header {
+    flex-direction: column;
+  }
+
+  .revelation-nav-arrows {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
 
 
 

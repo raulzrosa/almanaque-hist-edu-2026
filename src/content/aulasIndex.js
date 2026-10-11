@@ -1,6 +1,7 @@
 import aula01Markdown from './aulas/aula-01.md?raw'
 import aula02Markdown from './aulas/aula-02.md?raw'
 import aula03Markdown from './aulas/aula-03.md?raw'
+import aula04Markdown from './aulas/aula-04.md?raw'
 import aula06Markdown from './aulas/aula-06.md?raw'
 
 export const AULAS = [
@@ -639,6 +640,194 @@ export const AULAS = [
           ['V', 'A', 'R', 'G', 'A', 'S', 'R', 'E', 'F', 'S'],
           ['R', 'E', 'P', 'L', 'D', 'B', 'N', 'A', 'C', 'I'],
           ['E', 'D', 'U', 'C', 'A', 'C', 'A', 'O', 'E', 'C']
+        ]
+      }
+    }
+  },
+  {
+    id: 'aula-04',
+    numero: 4,
+    slug: 'instituicoes-e-cultura-escolar',
+    titulo: 'Instituições, Escolarização e Cultura Escolar',
+    subtitulo: 'A Escola como Universo Próprio: Normas, Saberes e o Cotidiano Praticado',
+    disciplina: 'História da Educação',
+    semestre: '2026',
+    dataPublicacao: 'Edição nº 4',
+    modulo: 'Cultura Escolar & Instituições',
+    resumoMarkdown: aula04Markdown,
+    pontosIlustrados: [
+      {
+        id: 'ponto-4-1',
+        numeroRomano: 'I',
+        titulo: 'A Escola como Universo Cultural e suas Quatro Dimensões',
+        subtitulo: 'Para Além da Mera Transmissão: Normas, Ritos e Linguagens Próprias',
+        tipoIlustracao: 'culturaEscolar',
+        destaqueConceito: 'A Autonomia da Cultura Escolar',
+        paragrafos: [
+          'A escola não é um espaço passivo que apenas recebe e transmite conhecimento do mundo exterior. Pelo contrário: ela constitui um microcosmo vivo que seleciona, ressignifica e produz seus próprios saberes, normas, ritos, tempos e linguagens particulares.',
+          'Essa cultura organiza-se historicamente em quatro dimensões fundamentais: 1) Dimensão Material (mobiliário, cadernos, suportes físicos, organização do tempo e ritos); 2) Dimensão Cognitiva (conhecimentos ensinados, disciplinas escolares, currículos e métodos didáticos); 3) Dimensão Normativa (regras disciplinares, valores morais, critérios de classificação e relações de poder); e 4) Dimensão Social (práticas cotidianas de docentes e alunos, formas de conduta e modos de socialização).'
+        ],
+        notaRodape: 'Quatro Dimensões: Material, Cognitiva, Normativa e Social compõem o tecido vivo através do qual a instituição escolar molda os sujeitos.'
+      },
+      {
+        id: 'ponto-4-2',
+        numeroRomano: 'II',
+        titulo: 'Cultura Prescrita vs. Cultura Praticada',
+        subtitulo: 'A Teoria dos Manuais Oficiais e a Vida Real no Chão da Sala de Aula',
+        destaqueConceito: 'A Tensão do Cotidiano Escolar',
+        paragrafos: [
+          'Grande parte da cultura escolar encontra-se registrada formalmente em regulamentos, decretos estatais, programas curriculares e manuais pedagógicos. Contudo, as pesquisas históricas evidenciam que tais documentos quase nunca são transpostos de maneira integral ou linear para a prática concreta.',
+          'Estabelece-se, assim, uma distinção basilar na História da Educação: a Cultura Escolar Prescrita (o mapa ideal idealizado pelas leis e legisladores) e a Cultura Escolar Praticada (o que efetivamente acontece nas salas de aula). Professores e alunos não são engrenagens passivas: no interior das turmas, as determinações oficiais são continuamente adaptadas, negociadas, reinterpretadas e, por vezes, subvertidas.'
+        ],
+        notaRodape: 'Sujeitos Ativos: A sala de aula é um espaço micropolítico onde regras oficiais ganham vida através da negociação diária.'
+      },
+      {
+        id: 'ponto-4-3',
+        numeroRomano: 'III',
+        titulo: 'A Virada Historiográfica e os Quatro Mestres',
+        subtitulo: 'Dominique Julia, André Chervel, Jean-Claude Forquin e Viñao Frago',
+        destaqueConceito: 'A Abertura da Caixa-Preta',
+        paragrafos: [
+          'Entre as décadas de 1970 e 1980, a História da Educação vivenciou uma profunda renovação teórica. Rompeu-se com a abordagem tradicional — que se limitava a examinar legislações, decretos e reformas governamentais — para passar a investigar o interior das instituições educacionais: o cotidiano, os ritos e as práticas reais que ali existem.',
+          'Esse movimento consolidou quatro concepções seminais de cultura escolar: Dominique Julia (foco nas normas, práticas e ritos que transmitem saberes e comportamentos); André Chervel (ênfase na capacidade criativa da escola e na invenção das disciplinas escolares); Jean-Claude Forquin (análise da transposição didática e da seleção cultural feita pela escola); e Antonio Viñao Frago (estruturação dos tempos, espaços, arquitetura e hábitos institucionais).'
+        ],
+        notaRodape: 'Inovação Metodológica: O estudo dos cadernos de alunos, diários de classe e mobílias revelou o funcionamento interno e real das escolas.'
+      },
+      {
+        id: 'ponto-4-4',
+        numeroRomano: 'IV',
+        titulo: 'Os Três Eixos da Pesquisa em Cultura Escolar no Brasil',
+        subtitulo: 'Currículo em Disputa, Materialidade Didática e Organização do Espaço-Tempo',
+        destaqueConceito: 'Saberes, Objetos e Espaços',
+        paragrafos: [
+          'No Brasil, as investigações historiográficas sobre a cultura escolar estruturaram-se prioritariamente em torno de três eixos complementares: 1) Saberes, conhecimentos e currículos: o currículo não é neutro, mas resulta de seleções políticas, culturais e disputas sociais que legitimam certas disciplinas em detrimento de outras.',
+          '2) Materialidade e métodos de ensino: as práticas pedagógicas são indissociáveis dos suportes materiais — carteiras enfileiradas, quadros-negros, livros de leitura e cadernos que disciplinam a postura e a caligrafia; e 3) Tempos, espaços e instituições: a arquitetura escolar, a seriação, a divisão das aulas em blocos e os calendários históricos foram intencionalmente desenhados para atender a projetos societários específicos.'
+        ],
+        notaRodape: 'A Escola como Objeto Histórico: Nada na escola é neutro — dos minutos marcados pela sineta à caligrafia impressa nos cadernos antigos.'
+      }
+    ],
+    conceitosChave: [
+      {
+        termo: 'Cultura Escolar',
+        descricao: 'Conjunto de normas, saberes, práticas, ritos e linguagens particulares produzidos e vivenciados no interior da instituição escolar.'
+      },
+      {
+        termo: 'Prescrito vs. Praticado',
+        descricao: 'Distinção entre as leis e programas oficiais (prescrição) e a realidade negociada do cotidiano das salas de aula (prática).'
+      },
+      {
+        termo: 'Invenção de Disciplinas',
+        descricao: 'Conceito de André Chervel: a escola não copia a ciência pura, mas produz disciplinas próprias (como a gramática escolar) para finalidades pedagógicas.'
+      },
+      {
+        termo: 'Cultura Material Escolar',
+        descricao: 'Mobiliário, suportes físicos, cadernos e manuais que estruturam hábitos corporais, métodos e memórias escolares.'
+      }
+    ],
+    citacaoDestaque: {
+      texto: 'A escola não é um espelho do céu exterior; ela é um universo próprio. Longe de ser apenas um espaço passivo que acolhe a luz de fora, a escola possui gravidade, atmosfera e matéria viva.',
+      fonte: 'Síntese Historiográfica • Aula 04'
+    },
+    curiosidade: {
+      titulo: 'Gabinete de Curiosidades: A Abertura da "Caixa-Preta" da Escola',
+      texto: 'Durante quase todo o século XIX e início do século XX, quem pesquisava História da Educação lia quase exclusivamente discursos de ministros, relatórios imperiais e decretos governamentais. Era como tentar entender o cosmos observando apenas o desenho dos telescópios! Apenas a partir dos anos 1970 e 1980 os historiadores começaram a "abrir a caixa-preta" da escola: foram aos arquivos escolares recolher cadernos manchados de tinta de alunos anônimos, boletins, relatórios de castigos e mobílias descartadas. Foi esse exame que provou cientificamente que o que professores e alunos praticavam em sala era muito mais rico e autônomo do que aquilo que os governos prescreviam nas capitais!',
+      curiosidadeExtra: '💡 Você sabia? O historiador francês André Chervel demonstrou que a "Gramática Escolar" não nasceu nas universidades nem na literatura clássica: ela foi uma invenção criada pelos próprios professores em sala de aula para conseguir ensinar ortografia e redação às crianças!'
+    },
+    passatempos: {
+      cosmosEscolar: {
+        titulo: 'O Cosmos da Cultura Escolar',
+        subtitulo: 'A Escola não é um espelho passivo do céu exterior; ela é um universo próprio com gravidade, atmosfera e matéria viva.',
+        objetos: [
+          {
+            id: 'corpos-celestes',
+            tipo: 'corpos',
+            nomeAstro: 'Os Corpos Celestes',
+            disticoLatino: 'Corpora Celestia • Planetae',
+            analogiaCurta: 'Conhecimentos & Saberes Escolares',
+            textoMetfora: 'Os conhecimentos e saberes são os corpos celestes: Nem toda poeira cósmica vinda de fora permanece intacta. A escola atrai saberes externos, condensa-os, decompõe-los e os transforma em disciplinas escolares — como nebulosas que formam novos planetas e estrelas com densidade e brilho singulares.',
+            conceitoEscolar: 'A Invenção das Disciplinas Escolares (André Chervel)',
+            explicacaoEscola: [
+              'Na História da Educação, demonstra-se que a escola não reproduz passivamente os conhecimentos científicos brutos produzidos pelos acadêmicos ou cientistas do mundo exterior.',
+              'A escola atua como um campo de atração gravitacional: acolhe conteúdos culturais externos, decompõe-os, simplifica-os e cria "disciplinas escolares" autônomas (como a gramática escolar, a história para crianças ou a matemática básica).',
+              'Essas disciplinas possuem métodos, exercícios, graus de dificuldade e finalidades formativas, morais e cívicas próprias, que só existem e ganham sentido dentro do universo escolar.'
+            ],
+            teoricoRef: 'André Chervel — "A História das Disciplinas Escolares" (1988)'
+          },
+          {
+            id: 'supernova',
+            tipo: 'supernova',
+            nomeAstro: 'A Supernova',
+            disticoLatino: 'Supernova • Creatio Scholaris',
+            analogiaCurta: 'A Criação de Novos Saberes',
+            textoMetfora: 'A criação de novos saberes é como uma supernova: A escola não se limita a conservar matéria; ela produz cultura própria. Nas interações do dia a dia, ocorrem fusões e explosões de sentido que geram elementos inéditos, saberes pedagógicos que só existem porque aquele espaço existe.',
+            conceitoEscolar: 'A Escola como Usina Produtora de Cultura (Dominique Julia & Forquin)',
+            explicacaoEscola: [
+              'Durante décadas, teorias sociológicas consideravam a escola um aparelho puramente reprodutor das ideologias da classe dominante. Os estudos da cultura escolar romperam com esse modelo mecânico.',
+              'A escola é criativa e fértil: no contato cotidiano entre mestres e alunos, surgem métodos didáticos originais, recursos pedagógicos, modos de mediação e valores comunitários que nunca existiram nos gabinetes ministeriais.',
+              'Esses saberes pedagógicos explodem como supernovas no chão da sala de aula: eles só existem porque aquele espaço de convivência e ensino existe.'
+            ],
+            teoricoRef: 'Dominique Julia & Jean-Claude Forquin — A Escola como Espaço Criador de Cultura'
+          },
+          {
+            id: 'orbitas',
+            tipo: 'orbitas',
+            nomeAstro: 'As Órbitas & Gravidade',
+            disticoLatino: 'Orbitae • Leges Temporis et Spatii',
+            analogiaCurta: 'Tempos, Espaços, Normas e Rituais',
+            textoMetfora: 'As órbitas são os tempos, espaços, normas e rituais: O toque da sineta, as fileiras, a divisão das aulas em blocos de minutos, as cerimônias e as sanções funcionam como as leis gravitacionais. Elas organizam as trajetórias dos corpos, ditando o ritmo, a distância e a cadência com que tudo circula.',
+            conceitoEscolar: 'A Cultura Escolar Prescrita e o Ordenamento Espaço-Temporal',
+            explicacaoEscola: [
+              'O historiador Antonio Viñao Frago destaca que o tempo e o espaço são as estruturas mais sólidas e invisíveis da cultura escolar.',
+              'A divisão do dia letivo em blocos de 50 minutos, o toque agudo da sineta, as carteiras enfileiradas viradas para a lousa e os ritos de entrada e premiação funcionam como leis gravitacionais: controlam os corpos, moldam os hábitos e impõem a cadência do aprendizado.',
+              'Isso constitui a Cultura Escolar Prescrita — o conjunto de regras, normas e manuais oficiais concebidos para disciplinar o trânsito dos corpos no cosmos escolar.'
+            ],
+            teoricoRef: 'Antonio Viñao Frago — "Espaço e Tempo Escolar" (1998)'
+          },
+          {
+            id: 'viajantes',
+            tipo: 'viajantes',
+            nomeAstro: 'Viajantes & Forças Gravitacionais',
+            disticoLatino: 'Viatores • Magistri et Discipuli',
+            analogiaCurta: 'Professores e Estudantes como Sujeitos Ativos',
+            textoMetfora: 'Professores e estudantes são as forças gravitacionais e os viajantes: Eles não apenas seguem trajetórias pré-determinadas; com suas práticas, resistências e laços, alteram as marés, desviam rotas e recriam as leis físicas daquele microcosmo a cada instante.',
+            conceitoEscolar: 'Cultura Praticada & Sujeitos Ativos na Sala de Aula',
+            explicacaoEscola: [
+              'Ao penetrar no cotidiano escolar, os historiadores evidenciaram que docentes e discentes não são receptáculos inertes nem autômatos obedientes.',
+              'Nem todas as determinações da lei são seguidas à risca: na vida real da sala de aula, as regras são negociadas, adaptadas, reinterpretadas e por vezes abertamente subvertidas.',
+              'Essa é a Cultura Escolar Praticada: professores e estudantes possuem massa e gravidade próprias, exercendo resistências, tecendo laços e redesenhando os rumos da escola a cada aula.'
+            ],
+            teoricoRef: 'A Prática Escolar e os Sujeitos Históricos Ativos'
+          },
+          {
+            id: 'artefatos',
+            tipo: 'artefatos',
+            nomeAstro: 'Poeira Cósmica & Instrumentos',
+            disticoLatino: 'Materia • Instrumenta Didactica',
+            analogiaCurta: 'Materiais e Artefatos Escolares',
+            textoMetfora: 'Materiais e artefatos escolares são a poeira e os instrumentos: Carteiras, cadernos, lousas e livros compõem o tecido físico sobre o qual essa matéria escura de relações de poder e socialização ganha forma tangível.',
+            conceitoEscolar: 'A Cultura Material Escolar e seus Dispositivos',
+            explicacaoEscola: [
+              'No Brasil, a historiografia da educação dedica especial atenção à cultura material: cadernos de alunos, carteiras de madeira, tinteiros, cartilhas, lousas e uniformes.',
+              'Esses objetos não são meros adereços neutros de apoio: a disposição das carteiras ensina a imobilidade e a vigilância, o caderno pautado disciplina o gesto da mão e os livros transmitem hierarquias sociais.',
+              'É na materialidade palpável das coisas que as relações de poder, afeto e saber escolar ganham densidade e sobrevivem na memória das gerações.'
+            ],
+            teoricoRef: 'Pesquisas em Cultura Material Escolar no Brasil'
+          },
+          {
+            id: 'galaxia',
+            tipo: 'galaxia',
+            nomeAstro: 'A Galáxia em Expansão',
+            disticoLatino: 'Galaxia • Radiatio in Societate',
+            analogiaCurta: 'Radiação Além das Quatro Paredes',
+            textoMetfora: 'Assim como os eventos em uma galáxia irradiam energia para além de suas bordas e afetam o tecido do espaço-tempo ao redor, a cultura escolar não fica confinada entre quatro paredes: ela forma identidades, molda olhares e projeta luz contínua sobre toda a sociedade.',
+            conceitoEscolar: 'A Escolarização da Sociedade e Formação de Gerações',
+            explicacaoEscola: [
+              'Apesar de possuir seu próprio universo e regras particulares, a instituição escolar não permanece isolada: ela é o principal motor de socialização da sociedade moderna.',
+              'A cultura desenvolvida na escola transborda seus muros e transforma as famílias, a disciplina nas fábricas e escritórios, os ritmos das cidades e os ideais republicanos e democráticos.',
+              'A escola forma identidades sociais e projeta luz contínua, moldando o modo como a sociedade concebe a infância, o tempo e o futuro.'
+            ],
+            teoricoRef: 'O Processo Civilizador e a Escolarização Moderna'
+          }
         ]
       }
     }

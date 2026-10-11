@@ -9,7 +9,8 @@ import WordSearch from './components/WordSearch'
 import HistoryQuiz from './components/HistoryQuiz'
 import Crossword from './components/Crossword'
 import TimelineChallenge from './components/TimelineChallenge'
-import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock, FileText, BookOpen } from 'lucide-react'
+import CelestialSchoolGame from './components/CelestialSchoolGame'
+import { Bookmark, Gamepad2, Sparkles, Grid3X3, Clock, FileText, BookOpen, Orbit } from 'lucide-react'
 import './styles/almanaque.css'
 
 export default function App() {
@@ -36,6 +37,8 @@ export default function App() {
         return { label: 'Palavras Cruzadas', icon: <Grid3X3 size={14} /> }
       case 'linhaDoTempo':
         return { label: 'Linha do Tempo', icon: <Clock size={14} /> }
+      case 'cosmosEscolar':
+        return { label: 'O Cosmos da Escola', icon: <Orbit size={14} /> }
       default:
         return { label: key, icon: <Sparkles size={14} /> }
     }
@@ -161,6 +164,10 @@ export default function App() {
 
                   {currentTab === 'linhaDoTempo' && passatempos.linhaDoTempo && (
                     <TimelineChallenge config={passatempos.linhaDoTempo} />
+                  )}
+
+                  {currentTab === 'cosmosEscolar' && passatempos.cosmosEscolar && (
+                    <CelestialSchoolGame config={passatempos.cosmosEscolar} />
                   )}
                 </div>
               </div>
