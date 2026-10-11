@@ -103,17 +103,6 @@ export default function CuriosityCard({ curiosidade }) {
 
           {/* Corpo do Balão com a Fala da Coruja */}
           <div className="corugari-speech-bubble">
-            {/* <div className="speech-header">
-              <div className="speech-speaker-label">
-                <MessageSquareQuote size={15} />
-                <span>Dra. Corugari Proclama:</span>
-              </div>
-              <div className="speech-cabinet-pill">
-                <Compass size={12} />
-                <span>Gabinete de Curiosidades</span>
-              </div>
-            </div> */}
-
             {/* Título da Curiosidade */}
             <h3 className="speech-curiosity-title">{cleanTitle}</h3>
 

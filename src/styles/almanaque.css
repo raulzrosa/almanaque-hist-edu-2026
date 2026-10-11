@@ -1802,6 +1802,10 @@ body {
   margin: 0;
   border-bottom: 1px dashed #cbb898;
   padding-bottom: 4px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .timeline-years-list, .timeline-events-list {
@@ -1819,7 +1823,7 @@ body {
   padding: 8px 12px;
   border-radius: 4px;
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 800;
   color: var(--ink-primary);
   cursor: pointer;
@@ -1858,7 +1862,7 @@ body {
   border: 1px solid #dcd0b8;
   border-radius: 4px;
   padding: 8px 12px;
-  font-size: 0.88rem;
+  font-size: 1rem;
   line-height: 1.4;
   color: var(--ink-primary);
   cursor: pointer;
