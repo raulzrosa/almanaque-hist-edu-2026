@@ -1,4 +1,4 @@
-import { BookMarked, ChevronLeft, ChevronRight, BookOpen, Columns, FileText } from 'lucide-react'
+import { BookMarked, ChevronLeft, ChevronRight, BookOpen, FileText } from 'lucide-react'
 
 export default function AlmanacNavigation({
   aulas,
@@ -69,23 +69,15 @@ export default function AlmanacNavigation({
         </button>
       </div>
 
-      {/* Alternância de Modo de Visualização (Página Dupla vs Página Única) */}
+      {/* Alternância de Página (Página 1: Resumo vs Página 2: Passatempos) */}
       <div className="nav-view-actions">
-        <span className="nav-label">Exibição:</span>
+        <span className="nav-label">Página:</span>
         <div className="nav-view-buttons">
-          <button
-            type="button"
-            className={`btn-vintage btn-vintage-outline ${activePageView === 'spread' ? 'active' : ''}`}
-            onClick={() => onChangePageView('spread')}
-            title="Ver as duas páginas lado a lado (estilo livro aberto)"
-          >
-            <Columns size={14} /> <span>Página Dupla</span>
-          </button>
           <button
             type="button"
             className={`btn-vintage btn-vintage-outline ${activePageView === 'page1' ? 'active' : ''}`}
             onClick={() => onChangePageView('page1')}
-            title="Ver apenas a Página 1 (Resumo)"
+            title="Ver a Página 1 (Resumo Crítico da Aula)"
           >
             <FileText size={14} /> <span>Pág. 1 (Resumo)</span>
           </button>
@@ -93,9 +85,9 @@ export default function AlmanacNavigation({
             type="button"
             className={`btn-vintage btn-vintage-outline ${activePageView === 'page2' ? 'active' : ''}`}
             onClick={() => onChangePageView('page2')}
-            title="Ver apenas a Página 2 (Passatempos)"
+            title="Ver a Página 2 (Gabinete de Curiosidades & Passatempos)"
           >
-            <BookOpen size={14} /> <span>Pág. 2 (Jogos)</span>
+            <BookOpen size={14} /> <span>Pág. 2 (Passatempos)</span>
           </button>
         </div>
       </div>

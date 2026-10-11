@@ -14,7 +14,7 @@ import './styles/almanaque.css'
 
 export default function App() {
   const [currentLessonIndex, setCurrentLessonIndex] = useState(0)
-  const [activePageView, setActivePageView] = useState('spread') // 'spread' | 'page1' | 'page2'
+  const [activePageView, setActivePageView] = useState('page1') // 'page1' | 'page2'
   const [activeTab, setActiveTab] = useState('') // dinâmico
   const [showHowToAddModal, setShowHowToAddModal] = useState(false)
 
@@ -64,12 +64,12 @@ export default function App() {
         onChangePageView={setActivePageView}
       />
 
-      {/* Palco do Almanaque (Área das Páginas) */}
+      {/* Palco do Almanaque (Área das Páginas em Modo Página Única) */}
       <main className="almanac-stage">
-        <div className={`almanac-spread ${activePageView !== 'spread' ? 'single-page-mode' : ''}`}>
+        <div className="almanac-spread single-page-mode">
           
           {/* PÁGINA 1: RESUMO CRÍTICO DA AULA */}
-          {(activePageView === 'spread' || activePageView === 'page1') && (
+          {activePageView === 'page1' && (
             <AlmanacPage
               pageNumber={page1Number}
               topic={currentLesson.modulo || 'História da Educação'}
@@ -80,10 +80,10 @@ export default function App() {
           )}
 
           {/* PÁGINA 2: GABINETE DE CURIOSIDADES & PASSATEMPOS */}
-          {(activePageView === 'spread' || activePageView === 'page2') && (
+          {activePageView === 'page2' && (
             <AlmanacPage
               pageNumber={page2Number}
-              topic="Gabinete de Curiosidades & Passatempos"
+              topic="Gabinete de Curiosidades e Jogos da Dra. Corugari"
               edition="Almanaque Ilustrado"
             >
               <div className="page-2-container">
