@@ -1,6 +1,21 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import confetti from 'canvas-confetti'
 import { Trophy, CheckCircle2, RotateCcw, Clock, ArrowRight } from 'lucide-react'
+
+// Função para embaralhar os acontecimentos
+function shuffleList(list) {
+  if (!list || list.length <= 1) return list || []
+  const arr = [...list]
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]]
+  }
+  // Garante que a ordem não fique idêntica à sequência original
+  if (arr.length > 1 && arr.every((item, idx) => item.id === list[idx].id)) {
+    [arr[0], arr[1]] = [arr[1], arr[0]]
+  }
+  return arr
+}
 
 export default function TimelineChallenge({ config }) {
   const { marcos, instrucao } = config
@@ -9,7 +24,28 @@ export default function TimelineChallenge({ config }) {
   const [selectedYear, setSelectedYear] = useState(null)
   const [matches, setMatches] = useState({}) // { ano: eventoId }
   const [wrongAttempt, setWrongAttempt] = useState(null)
+  const [resetCount, setResetCount] = useState(0)
+  const [prevMarcos, setPrevMarcos] = useState(marcos)
   const confettiFired = useRef(false)
+
+  // Reseta seleção caso a lista de marcos mude (ex: troca de aula)
+  if (prevMarcos !== marcos) {
+    setPrevMarcos(marcos)
+    setSelectedYear(null)
+    setMatches({})
+    setWrongAttempt(null)
+  }
+
+  // Acontecimentos embaralhados para desafiar o aluno
+  const shuffledMarcos = useMemo(() => {
+    void resetCount // Força reembaralhamento ao clicar em Reiniciar
+    return shuffleList(marcos)
+  }, [marcos, resetCount])
+
+  // Mantém a coluna de datas organizada cronologicamente como linha do tempo
+  const sortedYears = useMemo(() => {
+    return [...marcos].sort((a, b) => parseInt(a.ano, 10) - parseInt(b.ano, 10))
+  }, [marcos])
 
   const isCompleted = Object.keys(matches).length === marcos.length && marcos.length > 0
 
@@ -55,6 +91,7 @@ export default function TimelineChallenge({ config }) {
     setSelectedYear(null)
     setMatches({})
     setWrongAttempt(null)
+    setResetCount(c => c + 1)
   }
 
   const matchedCount = Object.keys(matches).length
@@ -89,7 +126,7 @@ export default function TimelineChallenge({ config }) {
         <div className="timeline-years-column">
           <h5 className="timeline-col-title">✦ Datas Históricas</h5>
           <div className="timeline-years-list">
-            {marcos.map(m => {
+            {sortedYears.map(m => {
               const isMatched = !!matches[m.ano]
               const isSelected = selectedYear === m.ano
               const isError = wrongAttempt?.ano === m.ano
@@ -116,7 +153,7 @@ export default function TimelineChallenge({ config }) {
         <div className="timeline-events-column">
           <h5 className="timeline-col-title">✦ Acontecimentos na Educação</h5>
           <div className="timeline-events-list">
-            {marcos.map(m => {
+            {shuffledMarcos.map(m => {
               const matchedAno = Object.keys(matches).find(ano => matches[ano] === m.id)
               const isMatched = !!matchedAno
               const isError = wrongAttempt?.eventoId === m.id

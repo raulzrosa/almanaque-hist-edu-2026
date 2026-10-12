@@ -132,11 +132,11 @@ export const AULAS = [
             enunciado: 'Ao longo dos séculos, para que serviu o aperfeiçoamento dos métodos da historiografia?',
             opcoes: [
               'Para validar mentiras convenientes que facilitem governar.',
-              'Para combater falsas interpretações, falsificações, negacionismos e falsos revisionismos.',
               'Para impedir que estudantes tenham acesso aos erros do passado.',
-              'Para provar que o cinema sempre retrata a história com exatidão científica.'
+              'Para provar que o cinema sempre retrata a história com exatidão científica.',
+              'Para combater falsas interpretações, falsificações, negacionismos e falsos revisionismos.',
             ],
-            respostaCorreta: 1,
+            respostaCorreta: 3,
             explicacao: 'O rigor metodológico da história é a proteção contra fraudes, negacionismo e manipulações ideológicas do passado.'
           },
           {
@@ -635,11 +635,11 @@ export const AULAS = [
         fixedGrid: [
           ['C', 'O', 'N', 'S', 'T', 'A', 'N', 'T', 'E', 'S'],
           ['P', 'E', 'D', 'R', 'O', 'I', 'I', 'V', 'C', 'O'],
-          ['E', 'G', 'R', 'U', 'P', 'O', 'S', 'X', 'A', 'L'],
-          ['S', 'C', 'O', 'L', 'A', 'R', 'E', 'S', 'M', 'A'],
-          ['C', 'A', 'P', 'A', 'N', 'E', 'M', 'A', 'P', 'I'],
-          ['B', 'R', 'A', 'S', 'I', 'L', 'O', 'F', 'O', 'C'],
-          ['G', 'O', 'S', 'E', 'N', 'A', 'I', 'V', 'S', 'O'],
+          ['E', 'G', 'R', 'U', 'P', 'O', 'S', 'X', 'A', 'P'],
+          ['S', 'C', 'O', 'L', 'A', 'R', 'E', 'S', 'M', 'M'],
+          ['P', 'I', 'C', 'A', 'P', 'A', 'N', 'E', 'M', 'A'],
+          ['B', 'R', 'A', 'S', 'I', 'L', 'A', 'F', 'O', 'C'],
+          ['G', 'O', 'S', 'E', 'M', 'A', 'I', 'V', 'S', 'O'],
           ['V', 'A', 'R', 'G', 'A', 'S', 'R', 'E', 'F', 'S'],
           ['R', 'E', 'P', 'L', 'D', 'B', 'N', 'A', 'C', 'I'],
           ['E', 'D', 'U', 'C', 'A', 'C', 'A', 'O', 'E', 'C']
@@ -1003,15 +1003,15 @@ export const AULAS = [
         gridSize: 10,
         fixedGrid: [
           ['I', 'M', 'P', 'R', 'E', 'N', 'S', 'A', 'P', 'R'],
-          ['E', 'S', 'C', 'R', 'I', 'T', 'A', 'S', 'I', 'O'],
-          ['G', 'E', 'N', 'E', 'R', 'O', 'M', 'O', 'V', 'L'],
-          ['B', 'R', 'A', 'I', 'L', 'L', 'E', 'F', 'O', 'I'],
-          ['I', 'N', 'O', 'V', 'A', 'C', 'A', 'O', 'N', 'N'],
-          ['F', 'O', 'N', 'T', 'E', 'S', 'P', 'A', 'U', 'D'],
-          ['D', 'O', 'C', 'E', 'N', 'T', 'E', 'S', 'R', 'A'],
-          ['M', 'U', 'L', 'H', 'E', 'R', 'E', 'S', 'S', 'E'],
-          ['F', 'E', 'U', 'S', 'P', 'U', 'S', 'P', 'C', 'U'],
-          ['H', 'I', 'S', 'T', 'E', 'D', 'U', 'C', 'O', 'S']
+          ['N', 'S', 'C', 'R', 'I', 'T', 'A', 'S', 'I', 'E'],
+          ['O', 'E', 'N', 'E', 'B', 'O', 'M', 'O', 'V', 'S'],
+          ['V', 'R', 'A', 'I', 'R', 'L', 'E', 'F', 'O', 'C'],
+          ['A', 'N', 'O', 'V', 'A', 'C', 'A', 'O', 'O', 'R'],
+          ['C', 'O', 'N', 'T', 'I', 'S', 'P', 'R', 'U', 'I'],
+          ['A', 'O', 'C', 'E', 'L', 'T', 'E', 'S', 'R', 'T'],
+          ['O', 'U', 'L', 'H', 'L', 'N', 'E', 'S', 'S', 'A'],
+          ['F', 'O', 'N', 'T', 'E', 'S', 'S', 'P', 'C', 'U'],
+          ['H', 'I', 'S', 'G', 'E', 'D', 'U', 'C', 'O', 'S']
         ]
       }
     }
