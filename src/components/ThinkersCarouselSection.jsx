@@ -5,7 +5,6 @@ import {
   Sparkles,
   School,
   BookOpen,
-  Award,
   GraduationCap,
   Scale,
   Users
@@ -97,6 +96,8 @@ const PENSADORES = [
 
 export default function ThinkersCarouselSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [touchStartX, setTouchStartX] = useState(null)
+  const [touchEndX, setTouchEndX] = useState(null)
 
   const currentThinker = PENSADORES[currentIndex]
   const IconComponent = currentThinker.icone
@@ -107,6 +108,28 @@ export default function ThinkersCarouselSection() {
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === PENSADORES.length - 1 ? 0 : prev + 1))
+  }
+
+  const handleTouchStart = (e) => {
+    setTouchEndX(null)
+    setTouchStartX(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStartX === null || touchEndX === null) return
+    const distance = touchStartX - touchEndX
+    const minSwipeDistance = 40
+    if (distance > minSwipeDistance) {
+      handleNext()
+    } else if (distance < -minSwipeDistance) {
+      handlePrev()
+    }
+    setTouchStartX(null)
+    setTouchEndX(null)
   }
 
   return (
@@ -147,7 +170,13 @@ export default function ThinkersCarouselSection() {
       </div>
 
       {/* Cartão Principal do Carrossel */}
-      <div className="thinker-card-display">
+      <div
+        key={currentThinker.id}
+        className="thinker-card-display"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {/* Painel Esquerdo: Retrato de Época */}
         <div className="thinker-portrait-column">
           <div className="thinker-image-frame">

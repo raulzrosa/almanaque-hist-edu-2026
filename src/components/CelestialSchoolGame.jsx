@@ -449,7 +449,9 @@ export default function CelestialSchoolGame({ config }) {
       <header className="celestial-header">
         <div className="celestial-header-top">
           <span className="celestial-badge">
-            <Telescope size={13} /> Observatório Astronômico do Almanaque
+            <Telescope size={13} className="celestial-badge-icon" />
+            <span className="celestial-badge-text-full">Observatório Astronômico do Almanaque</span>
+            <span className="celestial-badge-text-short">Observatório Astronômico</span>
           </span>
           <span className="celestial-counter">
             <Compass size={13} /> Descobertas: <strong>{discoveredIds.size} / {objetos.length}</strong> astros
@@ -481,7 +483,7 @@ export default function CelestialSchoolGame({ config }) {
             <button
               key={item.id}
               type="button"
-              className={`celestial-card-btn ${isSelected ? 'selected' : ''} ${isDiscovered ? 'discovered' : ''}`}
+              className={`celestial-card celestial-card-btn ${isSelected ? 'selected' : ''} ${isDiscovered ? 'discovered' : ''}`}
               onClick={() => handleSelectObject(item.id)}
               aria-pressed={isSelected}
               title={`Clique para explorar: ${item.nomeAstro}`}

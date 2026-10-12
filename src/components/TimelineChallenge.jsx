@@ -66,9 +66,14 @@ export default function TimelineChallenge({ config }) {
       </p>
 
       {/* Barra de Progresso */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: 12 }}>
-        <span style={{ fontSize: '0.82rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--color-ruby)' }}>
+      <div className="timeline-status-bar">
+        <span className="timeline-progress-text">
           Marcos Conectados: {matchedCount} de {marcos.length}
+          {selectedYear && (
+            <span className="timeline-selected-badge">
+              • Ano {selectedYear} ativo
+            </span>
+          )}
         </span>
         <button
           onClick={handleReset}

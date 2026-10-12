@@ -59,8 +59,13 @@ export default function HistoryQuiz({ config }) {
         <>
           <div className="quiz-progress-bar">
             <span>{titulo}</span>
-            <span>
-              Questão {currentIdx + 1} de {perguntas.length}
+            <span className="quiz-progress-counter">
+              <span className="quiz-counter-long">
+                Questão {currentIdx + 1} de {perguntas.length}
+              </span>
+              <span className="quiz-counter-short">
+                {currentIdx + 1}/ {perguntas.length}
+              </span>
             </span>
           </div>
 

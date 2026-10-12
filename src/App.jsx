@@ -55,13 +55,13 @@ export default function App() {
   return (
     <div className="almanaque-root">
       {/* Fita Marcadora Decorativa */}
-      <aside 
+      {/* <aside 
         className="ribbon-bookmark"
         title="História da Educação • Clique para ver instruções de novas aulas"
         onClick={() => setShowHowToAddModal(true)}
       >
         <Bookmark size={20} fill="#dfb25f" color="#b38634" />
-      </aside>
+      </aside> */}
 
       {/* Cabeçalho do Almanaque */}
       <AlmanacHeader currentLesson={currentLesson} />

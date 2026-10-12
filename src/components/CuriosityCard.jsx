@@ -143,8 +143,9 @@ export default function CuriosityCard({ curiosidade }) {
                     className="manuscript-close-btn"
                     onClick={() => setIsBookOpen(false)}
                     title="Fechar anotação do tomo"
+                    aria-label="Fechar anotação do tomo"
                   >
-                    <X size={13} /> <span>Fechar Tomo</span>
+                    <X size={13} /> <span className="manuscript-close-text">Fechar Tomo</span>
                   </button>
                 </div>
                 <div className="manuscript-body">

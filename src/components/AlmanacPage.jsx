@@ -21,9 +21,9 @@ export default function AlmanacPage({ pageNumber, topic, edition, children, clas
 
       {/* Rodapé da página */}
       <footer className="page-footer">
-        <span>História da Educação</span>
-        <span className="page-number">— {pageNumber} —</span>
-        <span>Anno Domini MMXXVI</span>
+        <span className="page-footer-side page-footer-left">História da Educação</span>
+        <span className="page-number">—&nbsp;{pageNumber}&nbsp;—</span>
+        <span className="page-footer-side page-footer-right">Anno Domini MMXXVI</span>
       </footer>
     </article>
   )

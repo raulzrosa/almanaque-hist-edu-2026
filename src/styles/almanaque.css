@@ -499,6 +499,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   border-bottom: 1px solid #c9b798;
   padding-bottom: 8px;
   margin-bottom: 18px;
@@ -520,6 +521,7 @@ body {
   font-size: 0.72rem;
   color: var(--ink-muted);
   letter-spacing: 0.1em;
+  white-space: nowrap;
 }
 
 /* Rodapé da Página */
@@ -530,6 +532,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   font-family: var(--font-display);
   font-size: 0.8rem;
   color: var(--ink-muted);
@@ -537,13 +540,30 @@ body {
   z-index: 4;
 }
 
+.page-footer-side {
+  flex: 1;
+  min-width: 0;
+}
+
+.page-footer-left {
+  text-align: left;
+}
+
+.page-footer-right {
+  text-align: right;
+}
+
 .page-number {
   font-weight: 800;
   color: var(--color-ruby);
+  white-space: nowrap;
+  flex-shrink: 0;
+  text-align: center;
 }
 
 /* Conteúdo da Página */
 .page-body {
+  margin-bottom: 12px;
   position: relative;
   z-index: 4;
   flex: 1;
@@ -1308,6 +1328,7 @@ body {
 .manuscript-close-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 4px;
   background: rgba(140, 36, 24, 0.12);
   border: 1px solid rgba(140, 36, 24, 0.35);
@@ -1380,6 +1401,23 @@ body {
   .corugari-tail-top {
     display: block;
   }
+
+  .manuscript-close-btn {
+    padding: 4px 6px;
+    gap: 0;
+  }
+
+  .manuscript-close-btn .manuscript-close-text {
+    display: none;
+  }
+
+  .activities-tabs {
+    flex-flow: column;
+  }
+  .activity-tab-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Seção de Passatempos (Abas ou Blocos) */
@@ -1391,6 +1429,9 @@ body {
   border: 1px solid #d4c6a9;
   border-radius: 4px;
   padding: 14px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .activities-tabs {
@@ -1398,7 +1439,10 @@ body {
   gap: 8px;
   margin-bottom: 12px;
   border-bottom: 2px solid var(--color-ruby);
-  padding-bottom: 2px;
+  padding-bottom: 4px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  max-width: 100%;
 }
 
 .activity-tab-btn {
@@ -1592,6 +1636,25 @@ body {
   padding-bottom: 6px;
   border-bottom: 1px dashed #d4c6a9;
 }
+
+.quiz-progress-counter {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.quiz-counter-short {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .quiz-counter-long {
+    display: none;
+  }
+  .quiz-counter-short {
+    display: inline;
+  }
+}
+
 
 .quiz-question-card {
   background: rgba(255, 255, 255, 0.8);
@@ -1872,19 +1935,61 @@ body {
   flex-direction: column;
   gap: 12px;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.timeline-status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.timeline-progress-text {
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--color-ruby);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.timeline-selected-badge {
+  background: var(--color-gold);
+  color: #19120c;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
+  display: inline-block;
 }
 
 .timeline-layout {
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 180px minmax(0, 1fr);
   gap: 16px;
   align-items: flex-start;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-years-column, .timeline-events-column {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .timeline-col-title {
@@ -1901,13 +2006,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .timeline-years-list, .timeline-events-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .tl-year-btn {
@@ -1925,6 +2035,9 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
+  box-sizing: border-box;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .tl-year-btn:hover:not(:disabled) {
@@ -1964,6 +2077,17 @@ body {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+.tl-event-card.selectable {
+  border-color: #d4a753;
+  box-shadow: 0 1px 4px rgba(179, 134, 52, 0.2);
 }
 
 .tl-event-card.selectable:hover {
@@ -1992,6 +2116,13 @@ body {
   color: #1b5e20;
   text-transform: uppercase;
   margin-bottom: 2px;
+  overflow-wrap: break-word;
+}
+
+.tl-event-text {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 .tl-event-detail {
@@ -2001,12 +2132,87 @@ body {
   font-size: 0.8rem;
   font-style: italic;
   color: #2e7d32;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
 }
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   25% { transform: translateX(-4px); }
   75% { transform: translateX(4px); }
+}
+
+/* Responsividade da Linha do Tempo */
+@media (max-width: 768px) {
+  .timeline-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .timeline-col-title {
+    height: auto;
+    min-height: unset;
+    padding: 6px 0;
+    text-align: center;
+    font-size: 0.76rem;
+  }
+
+  .timeline-years-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 8px;
+    width: 100%;
+  }
+
+  .tl-year-btn {
+    padding: 8px 10px;
+    font-size: 0.92rem;
+    justify-content: flex-start;
+  }
+
+  .tl-year-btn:hover:not(:disabled) {
+    transform: none;
+  }
+
+  .tl-event-card {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-years-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .tl-year-btn {
+    padding: 6px 8px;
+    font-size: 0.85rem;
+    gap: 6px;
+  }
+
+  .tl-year-btn svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .tl-event-card {
+    padding: 8px 10px;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .tl-matched-tag {
+    font-size: 0.68rem;
+  }
+
+  .tl-event-detail {
+    font-size: 0.76rem;
+  }
 }
 
 /* ==========================================================================
@@ -2067,7 +2273,42 @@ body {
   }
 }
 
+@media (max-width: 768px) {
+  /* Cabeçalho da Página em Telas Pequenas e Tablets */
+  .page-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+  }
+
+  .page-header-topic {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-align: center;
+    letter-spacing: 0.12em;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .page-header-edition {
+    font-size: 0.68rem;
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
 @media (max-width: 640px) {
+  /* Cabeçalho da Página no Mobile */
+  .page-header {
+    margin-bottom: 14px;
+    padding-bottom: 6px;
+    gap: 3px;
+  }
+
   .almanac-stage {
     margin-top: 44px;
   }
@@ -2193,6 +2434,31 @@ body {
 
   .ribbon-bookmark {
     display: none;
+  }
+
+  .activities-box {
+    padding: 10px 8px;
+  }
+
+  /* Rodapé da Página no Mobile */
+  .page-footer {
+    padding-top: 6px;
+    gap: 6px;
+  }
+
+  .page-footer-side {
+    font-size: clamp(0.58rem, 2.3vw, 0.72rem);
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .page-number {
+    font-size: clamp(0.78rem, 2.8vw, 0.85rem);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0 4px;
   }
 }
 
@@ -2529,9 +2795,25 @@ body {
 /* Responsividade Mobile para a Sessão Especial */
 @media (max-width: 768px) {
   .comic-character-row {
-    flex-direction: column !important;
     gap: 16px;
     align-items: center;
+  }
+
+  .comic-character-row:first-of-type,
+  .comic-character-row:nth-of-type(1),
+  .comic-character-row:nth-child(1 of .comic-character-row),
+  .comic-row-lutero {
+    flex-direction: column !important;
+  }
+
+  .comic-character-row:nth-of-type(2),
+  .comic-character-row:nth-child(2 of .comic-character-row),
+  .comic-row-comenio {
+    flex-direction: column-reverse !important;
+  }
+
+  .comic-row-pestalozzi {
+    flex-direction: column !important;
   }
 
   .comic-portrait-container {
@@ -3023,6 +3305,7 @@ body {
   padding: 20px;
   box-shadow: 0 4px 14px rgba(50, 35, 20, 0.07);
   animation: fadeInSlide 0.35s ease-out;
+  touch-action: pan-y;
 }
 
 @keyframes fadeInSlide {
@@ -3079,7 +3362,7 @@ body {
 
 .thinker-overlay-dates {
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.70rem;
   letter-spacing: 0.08em;
   color: var(--color-gold-light);
   font-weight: 700;
@@ -3360,6 +3643,342 @@ body {
   box-shadow: 0 1px 4px rgba(140, 36, 24, 0.4);
 }
 
+/* Responsividade do Carrossel dos Pioneiros */
+@media (max-width: 768px) {
+  .thinkers-carousel-section {
+    margin: 22px 0 24px;
+    padding: 18px 14px 20px;
+  }
+
+  .thinkers-header {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+  }
+
+  .thinkers-title {
+    font-size: 1.25rem;
+  }
+
+  .thinkers-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+
+  .thinkers-tabs {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .thinker-tab-btn {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .thinker-tab-index {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .thinker-tab-name {
+    font-size: 0.8rem;
+  }
+
+  .thinker-tab-dates {
+    font-size: 0.68rem;
+  }
+
+  .thinker-card-display {
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 14px;
+  }
+
+  .thinker-portrait-column {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1.5px dashed rgba(179, 134, 52, 0.35);
+  }
+
+  .thinker-image-frame {
+    width: 105px;
+    height: 135px;
+    flex-shrink: 0;
+  }
+
+  .thinker-img {
+    height: 100%;
+  }
+
+  .thinker-caption-box {
+    text-align: left;
+    padding-top: 0;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .thinker-caption-name {
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+  }
+
+  .thinker-caption-role {
+    font-size: 0.85rem;
+  }
+
+  .thinker-caption-region {
+    font-size: 0.72rem;
+  }
+
+  .thinker-content-column {
+    width: 100%;
+  }
+
+  .thinker-content-header {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .thinker-role-pill {
+    font-size: 0.72rem;
+    padding: 3px 8px;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .thinker-slide-counter {
+    font-size: 0.7rem;
+  }
+
+  .thinker-thesis-box {
+    padding: 8px 10px;
+    margin-bottom: 12px;
+    gap: 8px;
+  }
+
+  .thesis-text {
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .thinker-ideas-list {
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .thinker-idea-item {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .idea-bullet-num {
+    width: 20px;
+    height: 20px;
+    font-size: 0.72rem;
+  }
+
+  .idea-title {
+    font-size: 0.84rem;
+  }
+
+  .idea-desc {
+    font-size: 0.86rem;
+    line-height: 1.4;
+  }
+
+  .thinker-quote-footer {
+    padding-top: 10px;
+    gap: 8px;
+  }
+
+  .quote-phrase {
+    font-size: 0.84rem;
+  }
+
+  .quote-legacy {
+    font-size: 0.72rem;
+  }
+
+  .thinkers-carousel-controls {
+    margin-top: 14px;
+    padding-top: 10px;
+  }
+
+  .carousel-nav-btn {
+    padding: 8px 14px;
+    font-size: 0.74rem;
+    min-height: 38px;
+  }
+}
+
+@media (max-width: 580px) {
+  .thinkers-carousel-section {
+    padding: 14px 10px 16px;
+    margin: 18px 0 20px;
+  }
+
+  .thinkers-badge {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .thinkers-title {
+    font-size: 1.12rem;
+    line-height: 1.25;
+  }
+
+  .thinkers-subtitle {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .thinkers-tabs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .thinker-tab-btn {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 7px 4px;
+    gap: 4px;
+  }
+
+  .thinker-tab-index {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+
+  .thinker-tab-text {
+    align-items: center;
+    width: 100%;
+  }
+
+  .thinker-tab-name {
+    font-size: 0.72rem;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .thinker-tab-dates {
+    display: none;
+  }
+
+  .thinker-card-display {
+    padding: 12px 10px;
+    gap: 12px;
+  }
+
+  .thinker-portrait-column {
+    gap: 12px;
+    padding-bottom: 10px;
+  }
+
+  .thinker-image-frame {
+    width: 86px;
+    height: 110px;
+  }
+
+  .thinker-caption-name {
+    font-size: 1rem;
+  }
+
+  .thinker-caption-role {
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+
+  .thinker-caption-region {
+    font-size: 0.66rem;
+  }
+
+  .thinker-role-pill {
+    font-size: 0.66rem;
+    padding: 3px 7px;
+  }
+
+  .thinker-slide-counter {
+    font-size: 0.66rem;
+  }
+
+  .thesis-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .thesis-text strong {
+    font-size: 0.76rem;
+  }
+
+  .idea-title {
+    font-size: 0.8rem;
+  }
+
+  .idea-desc {
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+
+  .quote-phrase {
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .quote-legacy {
+    font-size: 0.68rem;
+  }
+
+  .carousel-nav-btn {
+    padding: 7px 10px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+
+  .carousel-dots {
+    gap: 6px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .thinker-image-frame {
+    width: 74px;
+    height: 96px;
+  }
+
+  .thinker-caption-name {
+    font-size: 0.92rem;
+  }
+
+  .thinker-caption-role {
+    font-size: 0.74rem;
+  }
+
+  .carousel-nav-btn {
+    padding: 6px 8px;
+    font-size: 0.68rem;
+  }
+}
+
 /* ==========================================================================
    AULA 04: OBSERVATÓRIO CELESTE & O COSMOS DA CULTURA ESCOLAR
    ========================================================================== */
@@ -3369,6 +3988,9 @@ body {
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 /* Cabeçalho do Observatório */
@@ -3381,6 +4003,10 @@ body {
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .celestial-header::before {
@@ -3416,6 +4042,18 @@ body {
   letter-spacing: 0.12em;
   padding: 4px 12px;
   border-radius: 999px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.celestial-badge-icon {
+  flex-shrink: 0;
+}
+
+.celestial-badge-text-short {
+  display: none;
 }
 
 .celestial-counter {
@@ -3430,6 +4068,10 @@ body {
   padding: 4px 10px;
   border-radius: 4px;
   border: 1px solid rgba(223, 178, 95, 0.3);
+  flex-shrink: 0;
+  white-space: nowrap;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .celestial-title {
@@ -3440,6 +4082,8 @@ body {
   margin: 4px 0 6px;
   letter-spacing: 0.04em;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .celestial-lead {
@@ -3449,6 +4093,8 @@ body {
   color: #ded1b8;
   line-height: 1.5;
   margin: 0 0 12px;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .celestial-instructions {
@@ -3457,16 +4103,23 @@ body {
   color: var(--color-gold-light);
   border-top: 1px dashed rgba(179, 134, 52, 0.4);
   padding-top: 8px;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 /* Grade de Cartões dos Objetos Celestes */
 .celestial-objects-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
-.celestial-card-btn {
+.celestial-card-btn,
+.celestial-card {
   background: linear-gradient(145deg, #fdfaf2 0%, #f4e9d0 100%);
   border: 1.5px solid #cbb898;
   border-radius: 6px;
@@ -3480,16 +4133,23 @@ body {
   box-shadow: 0 3px 8px rgba(50, 35, 20, 0.1);
   text-align: center;
   outline: none;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
-.celestial-card-btn:hover {
+.celestial-card-btn:hover,
+.celestial-card:hover {
   transform: translateY(-3px);
   border-color: var(--color-gold);
   box-shadow: 0 8px 18px rgba(179, 134, 52, 0.25);
   background: linear-gradient(145deg, #fffef9 0%, #faefd8 100%);
 }
 
-.celestial-card-btn.selected {
+.celestial-card-btn.selected,
+.celestial-card.selected {
   border: 2px solid var(--color-ruby);
   background: linear-gradient(145deg, #fffcf6 0%, #f7ebd0 100%);
   box-shadow: 
@@ -3523,13 +4183,14 @@ body {
   justify-content: center;
 }
 
-.celestial-card-btn.selected .celestial-check-badge {
+.celestial-card-btn.selected .celestial-check-badge,
+.celestial-card.selected .celestial-check-badge {
   color: var(--color-ruby);
 }
 
 .celestial-art-frame {
-  width: 90px;
-  height: 90px;
+  width: 84px;
+  height: 84px;
   border-radius: 50%;
   background: #19120c;
   border: 2px solid var(--color-gold);
@@ -3540,14 +4201,17 @@ body {
   box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.8), 0 3px 6px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   transition: transform 0.25s ease, border-color 0.25s ease;
+  flex-shrink: 0;
 }
 
-.celestial-card-btn:hover .celestial-art-frame {
+.celestial-card-btn:hover .celestial-art-frame,
+.celestial-card:hover .celestial-art-frame {
   transform: scale(1.06);
   border-color: #dfb25f;
 }
 
-.celestial-card-btn.selected .celestial-art-frame {
+.celestial-card-btn.selected .celestial-art-frame,
+.celestial-card.selected .celestial-art-frame {
   border-color: #ffd57b;
   box-shadow: 0 0 14px rgba(223, 178, 95, 0.5), inset 0 0 12px rgba(0, 0, 0, 0.9);
 }
@@ -3561,8 +4225,10 @@ body {
 .celestial-card-info {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 4px;
   width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .celestial-card-name {
@@ -3571,10 +4237,13 @@ body {
   font-weight: 800;
   color: var(--ink-primary);
   line-height: 1.25;
+  width: 100%;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .celestial-card-metaphor {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
@@ -3582,7 +4251,17 @@ body {
   font-style: italic;
   font-size: 0.78rem;
   color: var(--color-ruby);
-  line-height: 1.2;
+  line-height: 1.25;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+  box-sizing: border-box;
+}
+
+.celestial-card-metaphor svg {
+  flex-shrink: 0;
 }
 
 /* Painel de Revelação do Objeto Celeste */
@@ -3597,6 +4276,10 @@ body {
   position: relative;
   overflow: hidden;
   animation: fadeInPanel 0.25s ease-out;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 @keyframes fadeInPanel {
@@ -3629,19 +4312,29 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .revelation-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 14px;
   border-bottom: 1.5px solid #d8caa7;
   padding-bottom: 12px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .revelation-titles {
-  flex: 1;
+  flex: 1 1 280px;
+  min-width: 0;
 }
 
 .revelation-kicker {
@@ -3655,6 +4348,7 @@ body {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .revelation-astro-name {
@@ -3664,6 +4358,8 @@ body {
   color: var(--ink-primary);
   margin: 0;
   line-height: 1.25;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .revelation-nav-arrows {
@@ -3688,6 +4384,7 @@ body {
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .btn-celestial-nav:hover:not(:disabled) {
@@ -3705,18 +4402,26 @@ body {
   font-size: 0.78rem;
   color: var(--ink-muted);
   font-weight: 700;
+  white-space: nowrap;
 }
 
-/* Grid de duas colunas */
+/* Grid de duas colunas do Painel Revelador */
 .revelation-body-grid {
   display: grid;
-  grid-template-columns: 1fr 1.35fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
   gap: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .revelation-column {
   display: flex;
   flex-direction: column;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .revelation-box-label {
@@ -3732,6 +4437,7 @@ body {
   margin-bottom: 8px;
   border-bottom: 1px dashed #d1c1a2;
   padding-bottom: 4px;
+  flex-wrap: wrap;
 }
 
 .revelation-box-label.highlight-label {
@@ -3743,6 +4449,9 @@ body {
   border: 1px solid #d4c2a3;
   border-radius: 6px;
   padding: 14px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .metaphor-quote {
@@ -3754,6 +4463,8 @@ body {
   margin: 0 0 12px;
   border-left: 3px solid var(--color-gold);
   padding-left: 10px;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .metaphor-engraving-preview {
@@ -3763,6 +4474,8 @@ body {
   margin-top: auto;
   padding-top: 10px;
   border-top: 1px dashed rgba(179, 134, 52, 0.35);
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .mini-engraving-badge {
@@ -3781,6 +4494,8 @@ body {
   color: var(--ink-muted);
   font-style: italic;
   line-height: 1.3;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 /* Coluna da Escola */
@@ -3789,6 +4504,9 @@ body {
   border: 1px solid #d9ccb2;
   border-radius: 6px;
   padding: 14px 16px;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .school-concept-title {
@@ -3797,6 +4515,8 @@ body {
   font-weight: 800;
   color: var(--color-ruby);
   margin: 0 0 10px;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .school-explanation-text {
@@ -3806,11 +4526,15 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .school-explanation-text p {
   margin: 0;
   text-align: justify;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .school-theory-tag {
@@ -3821,6 +4545,10 @@ body {
   font-size: 0.8rem;
   color: var(--ink-secondary);
   font-family: var(--font-display);
+  min-width: 0;
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  word-break: normal;
 }
 
 .school-theory-tag strong {
@@ -3836,6 +4564,8 @@ body {
   gap: 12px;
   padding-top: 12px;
   border-top: 1px dashed #d1c1a2;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .revelation-footer-hint {
@@ -3843,6 +4573,9 @@ body {
   color: var(--ink-muted);
   font-style: italic;
   max-width: 500px;
+  min-width: 0;
+  flex: 1 1 240px;
+  overflow-wrap: break-word;
 }
 
 /* Banner de Cosmologia Completa */
@@ -3856,6 +4589,10 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .celestial-completion-banner::before {
@@ -3883,6 +4620,138 @@ body {
   margin: 0 0 8px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.celestial-completion-banner p {
+  overflow-wrap: break-word;
+  line-height: 1.55;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Regras Responsivas para o Observatório Celeste */
+@media (max-width: 900px) {
+  .celestial-objects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .revelation-body-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .celestial-header {
+    padding: 16px;
+  }
+
+  .celestial-header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .celestial-badge {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    max-width: 100%;
+  }
+
+  .celestial-badge-text-full {
+    display: none;
+  }
+
+  .celestial-badge-text-short {
+    display: inline;
+  }
+
+  .celestial-counter {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+
+  .celestial-title {
+    font-size: 1.25rem;
+  }
+
+  .celestial-lead {
+    font-size: 0.94rem;
+  }
+
+  .celestial-revelation-panel {
+    padding: 16px 14px;
+  }
+
+  .revelation-astro-name {
+    font-size: 1.15rem;
+  }
+
+  .revelation-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .revelation-nav-arrows {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .school-explanation-text p {
+    text-align: left;
+  }
+
+  .revelation-footer {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+
+  .revelation-footer-hint {
+    max-width: 100%;
+  }
+
+  .revelation-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .celestial-badge {
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    padding: 3px 8px;
+    gap: 5px;
+  }
+
+  .celestial-objects-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .celestial-card-btn,
+  .celestial-card {
+    padding: 12px 10px 10px;
+  }
+
+  .celestial-art-frame {
+    width: 72px;
+    height: 72px;
+    margin: 8px 0 8px;
+  }
+
+  .celestial-card-name {
+    font-size: 0.84rem;
+  }
+
+  .celestial-card-metaphor {
+    font-size: 0.74rem;
+  }
 }
 
 /* ==========================================================================
